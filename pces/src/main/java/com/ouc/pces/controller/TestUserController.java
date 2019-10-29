@@ -16,4 +16,10 @@ public class TestUserController {
         System.out.println("hello");
         return testUserService.select(id).toString();
     }
+
+    @RequestMapping("insertTestUser/{name}")
+    public String insertTestUser(@PathVariable String name){
+        System.out.println(name);
+        return String.valueOf(testUserService.insert(name));
+    }
 }

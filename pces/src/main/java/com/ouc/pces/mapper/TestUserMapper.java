@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TestUserMapper {
     TestUser select(int id);
+    int insert(String name);
 }

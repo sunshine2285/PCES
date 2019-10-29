@@ -3,12 +3,16 @@
 <mapper namespace="com.ouc.pces.mapper.TestUserMapper">
 
     <resultMap id="BaseResultMap" type="com.ouc.pces.entity.TestUser">
-        <result column="id" jdbcType="INTEGER" property="id" />
-        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
     <select id="select" resultType="com.ouc.pces.entity.TestUser">
         select * from user where id = #{id}
     </select>
+
+    <insert id="insert" >
+        insert into user (name) values (#{name})
+    </insert>
 
 </mapper>

@@ -15,4 +15,8 @@ public class TestUserService {
     public TestUser select(int id) {
         return testUserMapper.select(id);
     }
+
+    public int insert(String name){
+        return testUserMapper.insert(name);
+    }
 }
