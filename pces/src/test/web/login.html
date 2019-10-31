@@ -40,15 +40,26 @@
             alert(userId + '\n' + password);
 
             var url = "http://localhost:8080/login";
-            let userData = new FormData();
-            userData.append("type", userType);
-            userData.append("userId", userId);
-            userData.append("password", password);
+            // let userData = new FormData();
+            // userData.append("type", userType);
+            // userData.append("userId", userId);
+            // userData.append("password", password);
+
+            let userData = {
+                userType: userType,
+                userId: userId,
+                password: password
+            }
+
+            console.log(JSON.stringify(userData));
 
             fetch(url, {
-                    headers: {},
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    mode: 'cors',
                     method: "POST",
-                    body: userData
+                    body: JSON.stringify(userData)
                 })
                 .then(response => response.json())
                 .then(result => {

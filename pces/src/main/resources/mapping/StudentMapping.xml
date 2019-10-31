@@ -31,8 +31,4 @@
         select * from student where studentId = #{studentId}
     </select>
 
-<!--    <insert id="insert" >-->
-<!--        insert into user (name) values (#{name})-->
-<!--    </insert>-->
-
 </mapper>
