@@ -1,0 +1,56 @@
+<!--
+  ~ Copyright (c) 2019  
+  ~ FileName: login.html
+  ~ @Author: 孙浩杰
+  ~ @LastModified:2019-10-31 12:25:11
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginTest</title>
+    <style>
+        .login-block {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            transform: translate(-50%, -70%);
+        }
+
+        .login-block > * {
+            margin: 5px;
+        }
+
+        .login-block > input{
+            border: solid 1px #3f3f3f;
+            padding: 3px 5px;
+        }
+    </style>
+
+    <script>
+        function login(result) {
+            console.log(result);
+        }
+
+        test
+    </script>
+</head>
+<body>
+
+<div class="login-block">
+    <label>This is a Login test page.</label>
+    <br/>
+    <input type="text" id="name" placeholder="用户名">
+    <br/>
+    <input type="password" id="password" placeholder="密码">
+    <br/>
+    <button onclick="login()" onsubmit="test()"> click me to login</button>
+</div>
+
+</body>
+</html>
