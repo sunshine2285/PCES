@@ -12,6 +12,7 @@ import com.ouc.pces.util.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*")
@@ -20,7 +21,7 @@ public class LoginController {
     @Autowired
     StudentService studentService;
 
-    @RequestMapping("/login")
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
     public Response login(String type, String userId, String password) {
         //type代表用户种类，1为学生，2为老师
         final String STUDENT = "1";
