@@ -10,16 +10,26 @@ package com.ouc.pces.controller;
 import com.ouc.pces.service.StudentService;
 import com.ouc.pces.util.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class LoginController {
     @Autowired
     StudentService studentService;
 
     @RequestMapping("/login")
-    public Response login(){
-        return studentService.login("17020031062", "123");
+    public Response login(String type, String userId, String password) {
+        //type代表用户种类，1为学生，2为老师
+        final String STUDENT = "1";
+        final String TEACHER = "2";
+        if (STUDENT.equals(type))
+            return studentService.login(userId, password);
+        else if (TEACHER.equals(type))
+            return new Response();
+        else
+            return new Response(Response.Forbidden, "不存在该类用户");
     }
 }

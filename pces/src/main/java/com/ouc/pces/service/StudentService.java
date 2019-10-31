@@ -19,14 +19,15 @@ public class StudentService {
     StudentMapper studentMapper;
 
     public Response login(String studentId, String password) {
+        System.out.println(studentId);
         Student student = studentMapper.selectByStudentId(studentId);
         if (student == null) //用户id不存在
-            return new Response(Response.FAILED, "用户不存在");
+            return new Response(Response.NotFound, "用户不存在");
         else if (!student.getPassword().equals(password)) //密码错误
-            return new Response(Response.FAILED, "密码错误");
+            return new Response(Response.Forbidden, "密码错误");
         else if (student.getActivate() != 1) //用户处于未激活/冻结
-            return new Response(Response.FAILED, "户处于未激活/冻结");
+            return new Response(Response.Forbidden, "户处于未激活/冻结");
         else
-            return new Response(Response.SUCCESS, "登录成功");
+            return new Response(Response.OK, "登录成功");
     }
 }
