@@ -8,7 +8,10 @@
 package com.ouc.pces.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(description = "请求相应类")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response {
     //请求成功
@@ -20,8 +23,11 @@ public class Response {
     //禁止访问
     public final static int Forbidden = 403;
 
+    @ApiModelProperty(value = "响应状态码", required = true)
     private int code;
+    @ApiModelProperty(value = "响应状态描述", required = true)
     private String msg;
+    @ApiModelProperty(value = "响应数据")
     private Object data;
 
     public Response() {
