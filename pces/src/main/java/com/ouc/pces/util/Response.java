@@ -11,14 +11,23 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response {
-    public final static int SUCCESS = 1;
-    public final static int FAILED = 2;
+    //请求成功
+    public final static int OK = 200;
+    //请求服务异常
+    public final static int FAILED = 500;
+    //资源或请求对象不存在
+    public final static int NotFound = 404;
+    //禁止访问
+    public final static int Forbidden = 403;
 
     private int code;
     private String msg;
     private Object data;
 
     public Response() {
+    }
+
+    public Response(int code) {
     }
 
     public Response(int code, String msg) {
