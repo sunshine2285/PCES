@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
   ~ Copyright (c) 2019  
   ~ FileName: login.html
@@ -5,8 +6,8 @@
   ~ @LastModified:2019-10-31 12:25:11
   -->
 
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>LoginTest</title>
@@ -22,35 +23,68 @@
             transform: translate(-50%, -70%);
         }
 
-        .login-block > * {
+        .login-block>* {
             margin: 5px;
         }
 
-        .login-block > input{
+        .login-block>input {
             border: solid 1px #3f3f3f;
             padding: 3px 5px;
+        }
+
+        .login-block > .userType-block{
+            font-size: small;
         }
     </style>
 
     <script>
-        function login(result) {
-            console.log(result);
-        }
+        function login () {
+            let userId = document.getElementById("userId").value;
+            let password = document.getElementById("password").value;
 
-        test
+            let userType = document.getElementsByName("userType")[0].checked ? 1 : 2;
+    
+            alert(userId + '\n' + password);
+
+            var url = "http://localhost:8080/login";
+            let userData = new FormData();
+            userData.append("type", userType);
+            userData.append("userId", userId);
+            userData.append("password", password);
+
+            fetch(url, {
+                    headers: {},
+                    method: "POST",
+                    body: userData
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                }).catch(error => {
+                    console.log(error);
+                });
+        }
     </script>
 </head>
+
 <body>
 
-<div class="login-block">
-    <label>This is a Login test page.</label>
-    <br/>
-    <input type="text" id="name" placeholder="用户名">
-    <br/>
-    <input type="password" id="password" placeholder="密码">
-    <br/>
-    <button onclick="login()" onsubmit="test()"> click me to login</button>
-</div>
+    <div class="login-block">
+        <label>This is a Login test page.</label>
+        <br />
+        <input type="text" id="userId" placeholder="用户ID">
+        <br />
+        <input type="password" id="password" placeholder="密码">
+        <br />
+        <div class="userType-block">
+            <input type="radio" name="userType" value="1" checked="true"/>
+            <label for="userType" checked>学生</label>
+            <input type="radio" name="userType" value="2"/>
+            <label for="userType">教师</label>
+        </div>
+        <button onclick="login()" onkeypress="login()"> click me to login</button>
+    </div>
 
 </body>
+
 </html>
