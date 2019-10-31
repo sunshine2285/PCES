@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@Api(tags = "登录相关接口", description = "提供登录相关的 Rest API")
+@Api(value = "登录", tags = "登录接口")
 @CrossOrigin(origins = "*")
 @RestController
 public class LoginController {
