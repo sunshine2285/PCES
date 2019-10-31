@@ -9,19 +9,18 @@ package com.ouc.pces.controller;
 
 import com.ouc.pces.service.StudentService;
 import com.ouc.pces.util.Response;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@Api(tags = "登录相关接口", description = "提供登录相关的 Rest API")
 @CrossOrigin(origins = "*")
 @RestController
 public class LoginController {
     @Autowired
     StudentService studentService;
 
-    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    @PostMapping("/login")
     public Response login(String type, String userId, String password) {
         //type代表用户种类，1为学生，2为老师
         final String STUDENT = "1";
