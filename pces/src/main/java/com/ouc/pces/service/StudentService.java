@@ -28,6 +28,6 @@ public class StudentService {
         else if (student.getActivate() != 1) //用户处于未激活/冻结
             return new Response(Response.Forbidden, "户处于未激活/冻结");
         else
-            return new Response(Response.OK, "登录成功");
+            return new Response(Response.OK, "登录成功", student);
     }
 }

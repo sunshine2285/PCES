@@ -7,12 +7,17 @@
 
 package com.ouc.pces.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+
+@ApiModel
 public class Student {
     private int id;
     private String studentId;
     private String name;
     private String nickname;
     private String mail;
+    @JsonIgnore
     private String password;
     private int college;
     private int major;

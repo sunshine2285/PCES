@@ -23,7 +23,7 @@ public class LoginController {
     StudentService studentService;
 
 
-    @ApiOperation(value = "登录", notes = "学生和教师登录接口")
+    @ApiOperation(value = "登录", notes = "学生和教师登录接口，登录成功后用户信息回填到Response.data")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "params", value = "下列参数的json数据，用于post请求中后端接受", required = true),
             @ApiImplicitParam(name = "userType", value = "用户类型(封装到params)", paramType = "query"),
