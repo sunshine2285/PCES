@@ -7,8 +7,14 @@
 
 package com.ouc.pces.DTO;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "登录信息DTO")
 public class LoginDTO {
+    @ApiModelProperty(value = "用户ID",required = true)
     private String userId;
+    @ApiModelProperty(value = "用户密码",required = true)
     private String password;
 
     @Override
