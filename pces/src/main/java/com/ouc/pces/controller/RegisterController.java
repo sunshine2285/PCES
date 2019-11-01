@@ -25,13 +25,13 @@ public class RegisterController {
     StudentService studentService;
 
     @ApiOperation(value = "学生注册", notes = "学生注册 Rest api")
-    @PostMapping(value = "/student", produces = "application/json;charset=UTF-8")
+    @PostMapping(value = "/student", produces = "application/json")
     public ResponseDTO studentRegister(@RequestBody Student student) {
         return studentService.register(student);
     }
 
     @ApiOperation(value = "教师注册", notes = "教师组测 Rest api")
-    @PostMapping(value = "/teacher", produces = "application/json;charset=UTF-8")
+    @PostMapping(value = "/teacher", produces = "application/json")
     public ResponseDTO teacherRegister(@RequestBody Teacher teacher) {
         return new ResponseDTO();
     }

@@ -25,13 +25,13 @@ public class LoginController {
     StudentService studentService;
 
     @ApiOperation(value = "学生登录", notes = "学生登录接口，登录成功后用户信息回填到ResponseDTO.data中")
-    @PostMapping(value = "/student", produces = "application/json;charset=UTF-8")
+    @PostMapping(value = "/student", produces = "application/json")
     public ResponseDTO studentLogin(@RequestBody LoginDTO loginDTO) {
         return studentService.login(loginDTO.getUserId(), loginDTO.getPassword());
     }
 
     @ApiOperation(value = "教师登录", notes = "教师登录接口，登录成功后用户信息回填到ResponseDTO.data中")
-    @PostMapping(value = "/teacher", produces = "application/json;charset=UTF-8")
+    @PostMapping(value = "/teacher", produces = "application/json")
     public ResponseDTO teacherLogin(@RequestBody LoginDTO loginDTO) {
 //        return teacherService.login(loginDTO.getUserId(), loginDTO.getPassword());
         return new ResponseDTO();
