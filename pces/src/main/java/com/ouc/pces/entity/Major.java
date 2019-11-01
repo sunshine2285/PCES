@@ -7,9 +7,16 @@
 
 package com.ouc.pces.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel
 public class Major {
+    @ApiModelProperty(value = "专业ID", required = true)
     private int id;
+    @ApiModelProperty(value = "专业所在学院id", required = true)
     private int college;
+    @ApiModelProperty(value = "专业名称", required = true)
     private String name;
 
     @Override
