@@ -7,13 +7,32 @@
 
 package com.ouc.pces.controller;
 
+import com.ouc.pces.entity.Student;
+import com.ouc.pces.entity.Teacher;
+import com.ouc.pces.service.StudentService;
+import com.ouc.pces.DTO.ResponseDTO;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @Api(value = "注册", tags = "注册接口")
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/register")
 public class RegisterController {
+    @Autowired
+    StudentService studentService;
 
+    @ApiOperation(value = "学生注册", notes = "学生注册 Rest api")
+    @PostMapping(value = "/student", produces = "application/json;charset=UTF-8")
+    public ResponseDTO studentRegister(@RequestBody Student student) {
+        return studentService.register(student);
+    }
+
+    @ApiOperation(value = "教师注册", notes = "教师组测 Rest api")
+    @PostMapping(value = "/teacher", produces = "application/json;charset=UTF-8")
+    public ResponseDTO teacherRegister(@RequestBody Teacher teacher) {
+        return new ResponseDTO();
+    }
 }
