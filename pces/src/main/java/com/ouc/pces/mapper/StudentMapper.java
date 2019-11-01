@@ -14,4 +14,9 @@ import org.springframework.stereotype.Repository;
 public interface StudentMapper {
     Student selectById(int id);
     Student selectByStudentId(String studentId);
+
+    boolean checkStudentIdExist();
+    boolean checkNickNameExist();
+
+    int insert(Student student);
 }
