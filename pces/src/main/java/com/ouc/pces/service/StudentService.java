@@ -20,6 +20,7 @@ public class StudentService {
 
     /**
      * 学生登录服务
+     *
      * @param studentId
      * @param password
      * @return Response
@@ -38,26 +39,32 @@ public class StudentService {
 
     /**
      * 学生注册服务
+     *
      * @param student
      * @return Response
      */
-    public Response register(Student student){
+    public Response register(Student student) {
         //确保student不为null
-        if(student == null)
-            return new Response(Response.NotFound,"用户信息为空");
-        //确保id不重复
-        else if(studentMapper.checkStudentIdExist())
+        if (student == null)
+            return new Response(Response.NotFound, "用户信息为空");
+            //确保id不重复
+        else if (studentMapper.checkStudentIdExist(student.getStudentId()))
             return new Response(Response.Forbidden, "该学号已注册");
-        //确保nickname不重复
-        else if(studentMapper.checkNickNameExist())
+            //确保nickname不重复
+        else if (studentMapper.checkNicknameExist(student.getNickname()))
             return new Response(Response.Forbidden, "改昵称已被使用");
-        //todo:校验注册数据合法性
+            //todo:校验注册数据合法性
         else {
-            //todo:studentMapper insert方法
-            if(studentMapper.insert(student) == 1)
+            int result = 0;
+            try {
+                result = studentMapper.insert(student);
+            } catch (Exception e) {
+                return new Response(Response.FAILED, "注册失败:" + e.getMessage());
+            }
+            if (result == 1)
                 return new Response(Response.OK, "注册成功");
             else
-                return new Response(Response.FAILED, "注册失败！（可能字段填写不完整或服务器错误）");
+                return new Response(Response.FAILED, "");
         }
     }
 }
