@@ -9,6 +9,7 @@ package com.ouc.pces.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
+import springfox.documentation.annotations.ApiIgnore;
 
 @ApiModel
 public class Student {
@@ -23,6 +24,7 @@ public class Student {
     private int major;
     private String grade;
     private int type;
+    @JsonIgnore
     private int activate;
 
     @Override
