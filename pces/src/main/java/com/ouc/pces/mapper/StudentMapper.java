@@ -15,8 +15,9 @@ public interface StudentMapper {
     Student selectById(int id);
     Student selectByStudentId(String studentId);
 
-    boolean checkStudentIdExist();
-    boolean checkNickNameExist();
+    boolean checkStudentIdExist(String studentId);
+    boolean checkNicknameExist(String nickname);
 
-    int insert(Student student);
+    //若某个字段为空则会抛出异常
+    int insert(Student student) throws Exception;
 }
