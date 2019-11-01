@@ -9,7 +9,7 @@ package com.ouc.pces.service;
 
 import com.ouc.pces.entity.Student;
 import com.ouc.pces.mapper.StudentMapper;
-import com.ouc.pces.util.Response;
+import com.ouc.pces.DTO.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,16 +25,16 @@ public class StudentService {
      * @param password
      * @return Response
      */
-    public Response login(String studentId, String password) {
+    public ResponseDTO login(String studentId, String password) {
         Student student = studentMapper.selectByStudentId(studentId);
         if (student == null) //用户id不存在
-            return new Response(Response.NotFound, "用户不存在");
+            return new ResponseDTO(ResponseDTO.NotFound, "用户不存在");
         else if (!student.getPassword().equals(password)) //密码错误
-            return new Response(Response.Forbidden, "密码错误");
+            return new ResponseDTO(ResponseDTO.Forbidden, "密码错误");
         else if (student.getActivate() != 1) //用户处于未激活/冻结
-            return new Response(Response.Forbidden, "户处于未激活/冻结");
+            return new ResponseDTO(ResponseDTO.Forbidden, "户处于未激活/冻结");
         else
-            return new Response(Response.OK, "登录成功", student);
+            return new ResponseDTO(ResponseDTO.OK, "登录成功", student);
     }
 
     /**
@@ -43,28 +43,28 @@ public class StudentService {
      * @param student
      * @return Response
      */
-    public Response register(Student student) {
+    public ResponseDTO register(Student student) {
         //确保student不为null
         if (student == null)
-            return new Response(Response.NotFound, "用户信息为空");
+            return new ResponseDTO(ResponseDTO.NotFound, "用户信息为空");
             //确保id不重复
         else if (studentMapper.checkStudentIdExist(student.getStudentId()))
-            return new Response(Response.Forbidden, "该学号已注册");
+            return new ResponseDTO(ResponseDTO.Forbidden, "该学号已注册");
             //确保nickname不重复
         else if (studentMapper.checkNicknameExist(student.getNickname()))
-            return new Response(Response.Forbidden, "改昵称已被使用");
+            return new ResponseDTO(ResponseDTO.Forbidden, "改昵称已被使用");
             //todo:校验注册数据合法性
         else {
             int result = 0;
             try {
                 result = studentMapper.insert(student);
             } catch (Exception e) {
-                return new Response(Response.FAILED, "注册失败:" + e.getMessage());
+                return new ResponseDTO(ResponseDTO.FAILED, "注册失败:" + e.getMessage());
             }
             if (result == 1)
-                return new Response(Response.OK, "注册成功");
+                return new ResponseDTO(ResponseDTO.OK, "注册成功");
             else
-                return new Response(Response.FAILED, "");
+                return new ResponseDTO(ResponseDTO.FAILED, "");
         }
     }
 }
