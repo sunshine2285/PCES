@@ -31,4 +31,16 @@
         select * from student where studentId = #{studentId}
     </select>
 
+    <select id="checkStudentIdExist" resultType="java.lang.Boolean">
+        select count(*) from student where studentId = #{studentId}
+    </select>
+
+    <select id="checkNickNameExist" resultType="java.lang.Boolean">
+        select count(*) from student where nickname = #{nickname}
+    </select>
+
+    <insert id="insert" parameterType="Student">
+        insert into user(studentId, name, nickname, mail, password, collegem, major, grade, type) values
+        (#{studentId}, #{name}, #{nickname}, #{mail}, #{password}, #{collegem}, #{major}, #{grade}, #{type})
+    </insert>
 </mapper>
