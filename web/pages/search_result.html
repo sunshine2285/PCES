@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/font-awesome.css">
     <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/search_result.css">
 </head>
 
 <body>
@@ -43,10 +44,74 @@
     </div>
 </header>
 
-<!-- search result -->
+<!-- search list -->
 <div class="search-list">
     <div class="container">
-        <h3>您感兴趣的课程如下：</h3>
+        <div class="search-text">
+            <span>您感兴趣的课程如下：</span>
+        </div>
+
+        <div class="search-table">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">学分</th>
+                    <th scope="col">开课校区</th>
+                    <th scope="col">任课教师</th>
+                    <th scope="col">类型</th>
+                    <th scope="col">备注</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="search-list-pagination">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
 </div>
@@ -70,7 +135,6 @@
 <!-- Javascript -->
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
-<script src="../js/main.js"></script>
 
 </body>
 </html>
