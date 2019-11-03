@@ -28,7 +28,7 @@ class StudentMapperTest {
     }
 
     @Test
-    void InsertTest(){//passed
+    void InsertTest() {//passed
         Student student = new Student();
         student.setStudentId("17020031061");
         student.setName("宋自康");
@@ -52,6 +52,15 @@ class StudentMapperTest {
             System.out.println(studentMapper.insert(student));
         } catch (Exception e) {
             System.out.println(e.getCause());//exception:Column 'xxx' cannot be null
+        }
+    }
+
+    @Test
+    void updateTest() {//passed
+        try {//true
+            System.out.println(studentMapper.updateMailByStudentId("17020031061", "123"));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
