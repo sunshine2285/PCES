@@ -8,6 +8,7 @@
 package com.ouc.pces.mapper;
 
 import com.ouc.pces.entity.Student;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -20,4 +21,7 @@ public interface StudentMapper {
 
     //若某个字段为空则会抛出异常
     int insert(Student student) throws Exception;
+
+    boolean updateMailByStudentId(@Param("studentId") String studentId,
+                                  @Param("mail") String mail) throws Exception;
 }

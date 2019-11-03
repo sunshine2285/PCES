@@ -68,11 +68,30 @@ public class StudentService {
         }
     }
 
-    public ResponseDTO updateMail(){
-        return new ResponseDTO();
+    /**
+     * 学生修改邮箱服务
+     *
+     * @param studentId
+     * @param newMail
+     * @return
+     */
+    public ResponseDTO updateMail(String studentId, String newMail) {
+        if (studentId == null || "".equals(studentId.trim()))
+            return new ResponseDTO(ResponseDTO.NotFound, "用户ID为空");
+        else {
+            //todo 检验邮件合法性
+            try {
+                if (studentMapper.updateMailByStudentId(studentId, newMail))
+                    return new ResponseDTO(ResponseDTO.OK, "修改邮箱成功");
+                else
+                    return new ResponseDTO(ResponseDTO.Forbidden, "该用户ID不存在");
+            } catch (Exception e) {
+                return new ResponseDTO(ResponseDTO.FAILED, "修改邮箱失败:" + e.getMessage());
+            }
+        }
     }
 
-    public ResponseDTO updatePassword(){
+    public ResponseDTO updatePassword() {
         return new ResponseDTO();
     }
 }

@@ -43,4 +43,8 @@
         insert into student(studentId, name, nickname, mail, password, college, major, grade, type) values
         (#{studentId}, #{name}, #{nickname}, #{mail}, #{password}, #{college}, #{major}, #{grade}, #{type})
     </insert>
+
+    <update id="updateMailByStudentId">
+        update student set mail = #{mail} where studentId = #{studentId}
+    </update>
 </mapper>
