@@ -33,7 +33,6 @@ public class LoginController {
     @ApiOperation(value = "教师登录", notes = "教师登录接口，登录成功后用户信息回填到ResponseDTO.data中")
     @PostMapping(value = "/teacher", produces = "application/json")
     public ResponseDTO teacherLogin(@RequestBody LoginDTO loginDTO) {
-//        return teacherService.login(loginDTO.getUserId(), loginDTO.getPassword());
         return new ResponseDTO();
     }
 }

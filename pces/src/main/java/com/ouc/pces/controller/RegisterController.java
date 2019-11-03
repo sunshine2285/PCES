@@ -11,6 +11,7 @@ import com.ouc.pces.entity.Student;
 import com.ouc.pces.entity.Teacher;
 import com.ouc.pces.service.StudentService;
 import com.ouc.pces.DTO.ResponseDTO;
+import com.ouc.pces.service.TeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
     @Autowired
     StudentService studentService;
+    TeacherService teacherService;
 
     @ApiOperation(value = "学生注册", notes = "学生注册 Rest api")
     @PostMapping(value = "/student", produces = "application/json")
@@ -33,6 +35,6 @@ public class RegisterController {
     @ApiOperation(value = "教师注册", notes = "教师组测 Rest api")
     @PostMapping(value = "/teacher", produces = "application/json")
     public ResponseDTO teacherRegister(@RequestBody Teacher teacher) {
-        return new ResponseDTO();
+        return teacherService.register(teacher);
     }
 }

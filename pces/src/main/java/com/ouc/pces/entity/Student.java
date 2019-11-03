@@ -10,7 +10,6 @@ package com.ouc.pces.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import springfox.documentation.annotations.ApiIgnore;
 
 @ApiModel
 public class Student {
@@ -36,7 +35,6 @@ public class Student {
     @ApiModelProperty(value = "学生类型(1-本科生，2-研究生)",required = true)
     private int type;
     @ApiModelProperty(value = "激活状态(1-激活，0-冻结)")
-    @JsonIgnore
     private int activate;
 
     @Override

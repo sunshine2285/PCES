@@ -67,4 +67,12 @@ public class StudentService {
                 return new ResponseDTO(ResponseDTO.FAILED, "");
         }
     }
+
+    public ResponseDTO updateMail(){
+        return new ResponseDTO();
+    }
+
+    public ResponseDTO updatePassword(){
+        return new ResponseDTO();
+    }
 }
