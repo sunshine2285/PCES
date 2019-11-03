@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>user</title>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- 图标 -->
+    <link rel="stylesheet" href="../css/font-awesome.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header fixed-top">
+        <div class="branding">
+            <div class="container-fluid position-relative pt-2">
+                <div class="logo-wrapper">
+                    <div class="site-logo">
+                        <a class="navbar-brand" href="#">
+                            <img class="logo-icon mr-2" src="../img/logo.svg" alt="logo">
+                            <span class="logo-text">PCES<span class="text-alt">评课网</span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end align-items-center pt-2">
+                    <form class="search-form" id="search-form">
+                        <input type="text" placeholder="你可能感兴趣的课程..." name="search" class="form-control search-input">
+                        <button type="submit" class="btn search-btn" value="Search"><i class="fa fa-search"></i></button>
+                    </form>
+                    <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+                        <li class="list-inline-item"><a href="https://www.github.com"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                    <a href="" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="userBox">
+        <div class="btn-group btn-group-lg" id="buttonBox">
+            <button class="btn btn-default" type="button" onclick="switcher(1)">
+                <em class="glyphicon glyphicon-align-left"></em> 用户信息
+            </button>
+            <button class="btn btn-default" type="button" onclick="switcher(2)">
+                <em class="glyphicon glyphicon-align-center"></em> 修改邮箱
+            </button>
+            <button class="btn btn-default" type="button" onclick="switcher(3)">
+                <em class="glyphicon glyphicon-align-justify"></em> 修改密码
+            </button>
+        </div>
+        <div id="div1">
+            <table  class="table table-condensed table-hover">
+                <tbody>
+                <tr><td>用户名</td><td>小明</td></tr>
+                <tr><td>真实姓名</td><td>小明</td></tr>
+                <tr><td>性别</td><td>男</td></tr>
+                <tr><td>学号</td><td>17020031000</td></tr>
+                <tr><td>学院</td><td>信息科学与工程学院</td></tr>
+                <tr><td>专业</td><td>计算机科学与技术</td></tr>
+                <tr><td>邮箱</td><td>1234567890@ouc.edu.cn</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="div2" hidden>
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <form class="form-horizontal" role="form">
+                            <div>
+                                <label for="oldEmail" class="col-sm-2 control-label">原邮箱</label>
+                                <p id="oldEmail" class="col-sm-2">1234567890@ouc.edu.cn</p>
+                            </div>
+                            <div>
+                                <label for="newEmail" class="col-sm-2 control-label">新邮箱</label>
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control" id="newEmail" />
+                                </div>
+                            </div>
+                            <div>
+                                <label for="code" class="col-sm-2 control-label">验证码</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" id="code" />
+                                </div>
+                                <br/>
+
+                                &nbsp;&nbsp;&nbsp;<button type=button class="btn btn-default btn-info">发送验证码</button>
+                                <br/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-lg btn-success">修改</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div3" hidden>
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="oldpassword" class="col-sm-2 control-label">原密码</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="oldpassword" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newpassword" class="col-sm-2 control-label">新密码</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="newpassword" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newpassword2" class="col-sm-2 control-label">确认密码</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="newpassword2" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">验证邮箱</label>
+                                <div class="col-sm-10">
+                                    <p>1234567890@ouc.edu.cn</p>
+                                </div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+                            <button type=button class="btn btn-default btn-info">发送验证码</button>
+                            <br/>
+                            <br/>
+                            <div class="form-group">
+                                <label for="code" class="col-sm-2 control-label">验证码</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="code" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-lg btn-success">修改</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-bottom text-center py-5">
+            <ul class="social-list list-unstyled pb-4 mb-0">
+                <li class="list-inline-item"><a href="#"><i class="fa fa-github"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-slack"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-product-hunt"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+            <small class="copyright">Copyright &copy; 2019.All rights reserved.<a target=""></a></small>
+        </div>
+    </footer>
+    <!-- Javascript -->
+    <script src="../js/user.js"></script>
+</body>
+</html>
+
+
+
