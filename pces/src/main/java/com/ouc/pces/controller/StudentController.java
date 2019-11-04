@@ -11,8 +11,7 @@ import com.ouc.pces.DTO.ResponseDTO;
 import com.ouc.pces.DTO.UpdateDTO;
 import com.ouc.pces.service.SecurityService;
 import com.ouc.pces.service.StudentService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,17 +27,24 @@ public class StudentController {
 
     @ApiOperation(value = "修改邮箱", notes = "根据邮箱验证码修改新邮箱")
     @PostMapping(value = "/mail", produces = "application/json")
-    public ResponseDTO updateMail(@RequestBody UpdateDTO updateDTO){
-        if(securityService.checkUpadateMail(updateDTO.getUserId(), updateDTO.getVerificationCode())){
-            return studentService.updateMail(updateDTO.getUserId(), updateDTO.getUpdateInfo());
-        }else{
+    public ResponseDTO updateMail(@RequestBody UpdateDTO updateDTO) {
+        if (securityService.checkUpadateMail(updateDTO.getUserId(), updateDTO.getVerificationCode())) {
+            return studentService.updateMail(updateDTO.getUserId(),updateDTO.getPassword(),
+                    updateDTO.getUpdateInfo());
+        } else {
             return new ResponseDTO(ResponseDTO.Forbidden, "验证码错误或已失效");
         }
     }
 
     @ApiOperation(value = "修改密码", notes = "根据邮箱验证码和旧密码修改新邮箱")
     @PostMapping(value = "/password", produces = "application/json")
-    public ResponseDTO updatePassword(){
-        return studentService.updatePassword();
+    public ResponseDTO updatePassword(@RequestBody UpdateDTO updateDTO) {
+        if (securityService.checkUpadateMail(updateDTO.getUserId(), updateDTO.getVerificationCode())) {
+            return studentService.updatePassword(updateDTO.getUserId(),
+                    updateDTO.getPassword(), updateDTO.getUpdateInfo());
+        } else {
+            return new ResponseDTO(ResponseDTO.Forbidden, "验证码错误或已失效");
+        }
+
     }
 }

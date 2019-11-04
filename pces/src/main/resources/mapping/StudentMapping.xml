@@ -39,6 +39,10 @@
         select count(*) from student where nickname = #{nickname}
     </select>
 
+    <select id="checkPasswordCorrect" resultType="java.lang.Boolean">
+        select count(*) from student where studentId = #{studentId} and password = #{password}
+    </select>
+
     <insert id="insert" parameterType="Student">
         insert into student(studentId, name, nickname, mail, password, college, major, grade, type) values
         (#{studentId}, #{name}, #{nickname}, #{mail}, #{password}, #{college}, #{major}, #{grade}, #{type})
@@ -46,5 +50,9 @@
 
     <update id="updateMailByStudentId">
         update student set mail = #{mail} where studentId = #{studentId}
+    </update>
+
+    <update id="updatePwdByStudentId">
+        update  student set password = #{password} where studentId = #{studentId}
     </update>
 </mapper>

@@ -18,7 +18,7 @@ public class SecurityService {
      * @return
      */
     public boolean checkUpadateMail(String StudentId, String verificationCode){
-        //todo 根据studentId和验证码验证是否正确
+        //todo 根据studentId和验证码验证合法性
         return true;
     }
 }

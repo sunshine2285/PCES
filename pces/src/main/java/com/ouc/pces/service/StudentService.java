@@ -10,8 +10,10 @@ package com.ouc.pces.service;
 import com.ouc.pces.entity.Student;
 import com.ouc.pces.mapper.StudentMapper;
 import com.ouc.pces.DTO.ResponseDTO;
+import com.ouc.pces.utils.StringCheckUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class StudentService {
@@ -75,11 +77,14 @@ public class StudentService {
      * @param newMail
      * @return
      */
-    public ResponseDTO updateMail(String studentId, String newMail) {
-        if (studentId == null || "".equals(studentId.trim()))
+    public ResponseDTO updateMail(String studentId, String password, String newMail) {
+        if (StringCheckUtils.checkIsEmpty(studentId))
             return new ResponseDTO(ResponseDTO.NotFound, "用户ID为空");
+        else if(!studentMapper.checkPasswordCorrect(studentId, password))
+            return new ResponseDTO(ResponseDTO.Forbidden, "密码错误");
         else {
-            //todo 检验邮件合法性
+            if(!StringCheckUtils.checkMailStr(newMail))
+                return new ResponseDTO(ResponseDTO.Forbidden, "新邮箱不合法");
             try {
                 if (studentMapper.updateMailByStudentId(studentId, newMail))
                     return new ResponseDTO(ResponseDTO.OK, "修改邮箱成功");
@@ -91,7 +96,22 @@ public class StudentService {
         }
     }
 
-    public ResponseDTO updatePassword() {
-        return new ResponseDTO();
+    public ResponseDTO updatePassword(String studentId, String password, String newPassword) {
+        if (StringCheckUtils.checkIsEmpty(studentId))
+            return new ResponseDTO(ResponseDTO.NotFound, "用户ID为空");
+        else if (studentMapper.checkPasswordCorrect(studentId, password)) {
+            if(!StringCheckUtils.checkPwdStr(newPassword))
+                return new ResponseDTO(ResponseDTO.Forbidden, "新密码不合法");
+            try {
+                if(studentMapper.updatePwdByStudentId(studentId, newPassword))
+                    return new ResponseDTO(ResponseDTO.OK, "修改密码成功");
+                else
+                    return new ResponseDTO(ResponseDTO.Forbidden, "未知错误");
+            } catch (Exception e) {
+                return new ResponseDTO(ResponseDTO.FAILED, "修改密码失败:" + e.getMessage());
+            }
+        } else {
+            return new ResponseDTO(ResponseDTO.Forbidden, "用户ID或密码错误");
+        }
     }
 }

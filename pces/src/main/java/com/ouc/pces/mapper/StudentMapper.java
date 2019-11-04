@@ -18,10 +18,13 @@ public interface StudentMapper {
 
     boolean checkStudentIdExist(String studentId);
     boolean checkNicknameExist(String nickname);
+    boolean checkPasswordCorrect(String studentId, String password);
 
     //若某个字段为空则会抛出异常
     int insert(Student student) throws Exception;
 
     boolean updateMailByStudentId(@Param("studentId") String studentId,
                                   @Param("mail") String mail) throws Exception;
+    boolean updatePwdByStudentId(@Param("studentId") String studentId,
+                                 @Param("password") String password) throws Exception;
 }
