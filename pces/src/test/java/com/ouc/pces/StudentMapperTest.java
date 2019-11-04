@@ -56,9 +56,18 @@ class StudentMapperTest {
     }
 
     @Test
-    void updateTest() {//passed
+    void updateMailTest() {//passed
         try {//true
             System.out.println(studentMapper.updateMailByStudentId("17020031061", "123"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void updatePwdTest() {//passed
+        try {//true
+            System.out.println(studentMapper.updatePwdByStudentId("17020031060", "1243"));
         } catch (Exception e) {
             e.printStackTrace();
         }
