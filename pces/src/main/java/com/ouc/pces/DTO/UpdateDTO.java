@@ -16,7 +16,7 @@ public class UpdateDTO {
     private String userId;
     @ApiModelProperty(value = "验证码", required = true)
     private String verificationCode;
-    @ApiModelProperty(value = "用户密码", required = false)
+    @ApiModelProperty(value = "用户密码", required = true)
     private String password;
     @ApiModelProperty(value = "用户更新信息", required = true)
     private String updateInfo;
