@@ -9,6 +9,7 @@ package com.ouc.pces.controller;
 
 import com.ouc.pces.DTO.ResponseDTO;
 import com.ouc.pces.DTO.UpdateDTO;
+import com.ouc.pces.entity.Student;
 import com.ouc.pces.service.SecurityService;
 import com.ouc.pces.service.StudentService;
 import io.swagger.annotations.*;
@@ -25,11 +26,18 @@ public class StudentController {
     @Autowired
     SecurityService securityService;
 
+    @ApiOperation(value = "获取学生信息", notes = "根据学号获取学生信息")
+    @GetMapping(value = "/{studentId}", produces = "application/json")
+    public ResponseDTO getStudentByStudentId(@ApiParam(value = "学号", required = true)
+                                             @PathVariable("studentId") String studentId) {
+        return new ResponseDTO();
+    }
+
     @ApiOperation(value = "修改邮箱", notes = "根据邮箱验证码修改新邮箱")
     @PostMapping(value = "/mail", produces = "application/json")
     public ResponseDTO updateMail(@RequestBody UpdateDTO updateDTO) {
         if (securityService.checkUpadateMail(updateDTO.getUserId(), updateDTO.getVerificationCode())) {
-            return studentService.updateMail(updateDTO.getUserId(),updateDTO.getPassword(),
+            return studentService.updateMail(updateDTO.getUserId(), updateDTO.getPassword(),
                     updateDTO.getUpdateInfo());
         } else {
             return new ResponseDTO(ResponseDTO.Forbidden, "验证码错误或已失效");
@@ -45,6 +53,5 @@ public class StudentController {
         } else {
             return new ResponseDTO(ResponseDTO.Forbidden, "验证码错误或已失效");
         }
-
     }
 }
