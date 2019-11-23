@@ -7,8 +7,9 @@
 
 package com.ouc.pces.controller;
 
+import com.ouc.pces.DTO.LoginDTO;
 import com.ouc.pces.service.StudentService;
-import com.ouc.pces.util.Response;
+import com.ouc.pces.DTO.ResponseDTO;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,32 +19,20 @@ import java.util.Map;
 @Api(value = "登录", tags = "登录接口")
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/login")
 public class LoginController {
     @Autowired
     StudentService studentService;
 
+    @ApiOperation(value = "学生登录", notes = "学生登录接口，登录成功后用户信息回填到ResponseDTO.data中")
+    @PostMapping(value = "/student", produces = "application/json")
+    public ResponseDTO studentLogin(@RequestBody LoginDTO loginDTO) {
+        return studentService.login(loginDTO.getUserId(), loginDTO.getPassword());
+    }
 
-    @ApiOperation(value = "登录", notes = "学生和教师登录接口，登录成功后用户信息回填到Response.data")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "params", value = "下列参数的json数据，用于post请求中后端接受", required = true),
-            @ApiImplicitParam(name = "userType", value = "用户类型(封装到params)", paramType = "query"),
-            @ApiImplicitParam(name = "userId", value = "用户ID(封装到params)", paramType = "query"),
-            @ApiImplicitParam(name = "password", value = "用户密码(封装到params)", paramType = "query")
-    })
-
-    @PostMapping(value = "/login", produces = "application/json;charset=UTF-8")
-    public Response login(@RequestBody Map<String, Object> params ) {
-        String userType = params.get("userType").toString();
-        String userId = params.get("userId").toString();
-        String password = params.get("password").toString();
-        //type代表用户种类，1为学生，2为老师
-        final String STUDENT = "1";
-        final String TEACHER = "2";
-        if (STUDENT.equals(userType))
-            return studentService.login(userId, password);
-        else if (TEACHER.equals(userType))
-            return new Response();
-        else
-            return new Response(Response.Forbidden, "不存在该类用户");
+    @ApiOperation(value = "教师登录", notes = "教师登录接口，登录成功后用户信息回填到ResponseDTO.data中")
+    @PostMapping(value = "/teacher", produces = "application/json")
+    public ResponseDTO teacherLogin(@RequestBody LoginDTO loginDTO) {
+        return new ResponseDTO();
     }
 }

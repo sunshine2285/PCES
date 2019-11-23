@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019
+  ~ FileName: CollegeMapping.xml
+  ~ @Author: 孙浩杰
+  ~ @LastModified:2019-11-01 16:36:49
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ouc.pces.mapper.CourseMapper">
+
+    <resultMap id="resultMap" type="com.ouc.pces.entity.TagType">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="resultMap">
+        select * from course
+    </select>
+
+</mapper>

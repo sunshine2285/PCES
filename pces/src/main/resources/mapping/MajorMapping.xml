@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019
+  ~ FileName: MajorMapping.xml
+  ~ @Author: 孙浩杰
+  ~ @LastModified:2019-11-01 17:25:45
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ouc.pces.mapper.MajorMapper">
+
+    <resultMap id="majorMap" type="com.ouc.pces.entity.Major">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="collegeId" jdbcType="INTEGER" property="collegeId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+
+    <select id="selectByCollegeId" parameterType="java.lang.Integer" resultMap="majorMap">
+        select * from major where collegeId = #{collegeId}
+    </select>
+
+</mapper>
