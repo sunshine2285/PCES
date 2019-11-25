@@ -7,9 +7,15 @@
 
 package com.ouc.pces.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel
 public class College {
+    @ApiModelProperty(value = "学院ID",required = true)
     private int id;
-    private int name;
+    @ApiModelProperty(value = "学院名称",required = true)
+    private String name;
 
     @Override
     public String toString() {
@@ -27,11 +33,11 @@ public class College {
         this.id = id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

@@ -9,20 +9,32 @@ package com.ouc.pces.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel
 public class Student {
+    @ApiModelProperty("ID")
     private int id;
+    @ApiModelProperty(value = "学号",required = true)
     private String studentId;
+    @ApiModelProperty(value = "姓名",required = true)
     private String name;
+    @ApiModelProperty(value = "账户昵称",required = true)
     private String nickname;
+    @ApiModelProperty(value = "邮箱",required = true)
     private String mail;
+    @ApiModelProperty("用户密码")
     @JsonIgnore
     private String password;
+    @ApiModelProperty(value = "学院id",required = true)
     private int college;
+    @ApiModelProperty(value = "专业id",required = true)
     private int major;
+    @ApiModelProperty(value = "年级(例如2017)",required = true)
     private String grade;
+    @ApiModelProperty(value = "学生类型(1-本科生，2-研究生)",required = true)
     private int type;
+    @ApiModelProperty(value = "激活状态(1-激活，0-冻结)")
     private int activate;
 
     @Override
