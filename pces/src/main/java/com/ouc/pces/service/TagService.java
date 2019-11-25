@@ -1,5 +1,6 @@
 package com.ouc.pces.service;
 
+import com.ouc.pces.entity.Tag;
 import com.ouc.pces.entity.TagType;
 import com.ouc.pces.mapper.TagMapper;
 import com.ouc.pces.mapper.TagTypeMapper;
@@ -15,7 +16,12 @@ public class TagService {
     @Autowired
     TagTypeMapper tagTypeMapper;
 
-    public ArrayList<TagType> sellectAll(){
-        return new ArrayList<>();
+    public ArrayList<TagType> selectAll() {
+        return tagTypeMapper.selectAll();
     }
+
+    public ArrayList<Tag> selectTagsByCourseId(int courseId) {
+        return tagMapper.selectTagsByCourseId(courseId);
+    }
+
 }
