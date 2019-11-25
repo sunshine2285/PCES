@@ -5,15 +5,15 @@
  * @LastModified:2019-10-30 22:50:22
  */
 
-package com.ouc.pces.util;
+package com.ouc.pces.DTO;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "请求相应类")
+@ApiModel(description = "请求相应DTO")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Response {
+public class ResponseDTO {
     //请求成功
     public final static int OK = 200;
     //请求服务异常
@@ -30,18 +30,18 @@ public class Response {
     @ApiModelProperty(value = "响应数据")
     private Object data;
 
-    public Response() {
+    public ResponseDTO() {
     }
 
-    public Response(int code) {
+    public ResponseDTO(int code) {
     }
 
-    public Response(int code, String msg) {
+    public ResponseDTO(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public Response(int code, String msg, Object data) {
+    public ResponseDTO(int code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;

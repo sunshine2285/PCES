@@ -1,0 +1,51 @@
+/** part choice css */
+.part-choice {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.part-choice .btn-secondary {
+    color: #2b2b2b;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.part-choice .btn-secondary:hover {
+    color: #fff;
+    background-color: #48cd64;
+    border-color: #56ff71;
+}
+
+
+
+/** search table css */
+.search-table .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #dbfede;
+}
+
+.search-table .table-hover tbody tr:hover {
+    color: #212529;
+    background-color: rgba(65, 222, 78, 0.7);
+}
+
+
+
+/** search list pagination css */
+.search-list-pagination {
+    margin-top: 40px;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+}
+
+.search-list-pagination .page-link {
+    color: #28b76b;
+}
+
+.search-list-pagination .page-link:hover {
+    z-index: 2;
+    color: #04ff00;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-color: #dee2e6;
+}
