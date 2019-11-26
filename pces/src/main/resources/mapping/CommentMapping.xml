@@ -7,7 +7,7 @@
   -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ouc.pces.mapper.CourseMapper">
+<mapper namespace="com.ouc.pces.mapper.CommentMapper">
 
     <resultMap id="resultMap" type="com.ouc.pces.entity.Comment">
         <result column="id" jdbcType="INTEGER" property="id"/>
