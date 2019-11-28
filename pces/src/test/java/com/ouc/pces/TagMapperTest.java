@@ -10,20 +10,32 @@ import java.util.ArrayList;
 
 
 @SpringBootTest
-public class TagWapperTest {
+public class TagMapperTest {
     @Autowired
     TagMapper tagMapper;
 
     @Test
-    void selectTest(){
-        System.out.println(tagMapper.checkIsExist(5,6));
+    void selectTest() {
+        System.out.println(tagMapper.checkIsExist(5, 6));
     }
 
     @Test
-    void insertTest(){
+    void insertTest() {
         ArrayList<Tag> tags = new ArrayList<>();
-        Tag tag = new Tag(1, 5, 1);
+        Tag tag = new Tag(1, 7, 1);
+        Tag tag2 = new Tag(1, 8, 1);
         tags.add(tag);
+        tags.add(tag2);
         System.out.println(tagMapper.insertTags(tags));
+    }
+
+    @Test
+    void updateTest() {
+        ArrayList<Tag> tags = new ArrayList<>();
+        Tag tag = new Tag(1, 1, 0);
+        Tag tag2 = new Tag(1, 1, 0);
+        tags.add(tag);
+        tags.add(tag2);
+        System.out.println(tagMapper.updateTags(tags));
     }
 }

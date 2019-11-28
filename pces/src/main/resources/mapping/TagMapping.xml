@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Copyright (c) 2019
-  ~ FileName: CollegeMapping.xml
-  ~ @Author: 孙浩杰
-  ~ @LastModified:2019-11-01 16:36:49
-  -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ouc.pces.mapper.TagMapper">
@@ -18,7 +12,7 @@
 
     <select id="selectAll" resultMap="resultMap">
         select *
-        from course
+        from tag
     </select>
 
     <select id="checkIsExist" resultMap="count">
@@ -29,16 +23,16 @@
     </select>
 
     <update id="updateTags" parameterType="List">
-        update tag set num = num+1
-        <foreach collection="list" item="item" index="index">
-            where tagId = #{item.tagId} and courseId = #{item.courseId}
+        <foreach collection="list" item="item" index="index" separator=";">
+            update tag set num = num+1 where tagId = #{item.tagId} and courseId = #{item.courseId}
         </foreach>
     </update>
 
     <insert id="insertTags" parameterType="List">
         insert into tag(courseId, tagId, num)
-        <foreach collection="list" item="item" index="index">
-            values (#{item.courseId}, #{item.tagId}, 1)
+        values
+        <foreach collection="list" item="item" index="index" separator =",">
+            (#{item.courseId}, #{item.tagId}, 1)
         </foreach>
     </insert>
 </mapper>
