@@ -5,6 +5,8 @@ import com.ouc.pces.mapper.CommentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 @Service
@@ -17,6 +19,8 @@ public class CommentService {
     }
 
     public int insert(Comment comment){
+        comment.setId(0);
+        comment.setDate(Timestamp.valueOf(LocalDateTime.now()));
         return commentMapper.insert(comment);
     }
 

@@ -13,6 +13,16 @@ public class Comment {
   @ApiModelProperty(hidden = true)
   private java.sql.Timestamp date;
 
+  @Override
+  public String toString() {
+    return "Comment{" +
+            "id=" + id +
+            ", courseId=" + courseId +
+            ", comment='" + comment + '\'' +
+            ", userId=" + userId +
+            ", date=" + date +
+            '}';
+  }
 
   public long getId() {
     return id;

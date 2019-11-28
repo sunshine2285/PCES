@@ -14,7 +14,7 @@
         <result column="courseId" jdbcType="INTEGER" property="courseId"/>
         <result column="comment" jdbcType="VARCHAR" property="comment"/>
         <result column="userId" jdbcType="INTEGER" property="userId"/>
-        <result column="date" jdbcType="DATETIME" property="date"/>
+        <result column="date" jdbcType="TIMESTAMP" property="date"/>
     </resultMap>
 
     <select id="selectByCourseId" parameterType="java.lang.Integer" resultMap="resultMap">
