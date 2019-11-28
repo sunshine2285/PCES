@@ -8,6 +8,21 @@ public class Tag {
   private long num;
   private long id;
 
+  @Override
+  public String toString() {
+    return "Tag{" +
+            "courseId=" + courseId +
+            ", tagId=" + tagId +
+            ", num=" + num +
+            ", id=" + id +
+            '}';
+  }
+
+  public Tag(long courseId, long tagId, long num) {
+    this.courseId = courseId;
+    this.tagId = tagId;
+    this.num = num;
+  }
 
   public long getCourseId() {
     return courseId;
