@@ -1,5 +1,6 @@
 package com.ouc.pces.controller;
 
+import com.ouc.pces.DTO.ResponseDTO;
 import com.ouc.pces.entity.College;
 import com.ouc.pces.entity.Major;
 import com.ouc.pces.entity.Tag;
@@ -32,5 +33,13 @@ public class TagController {
     public ArrayList<Tag> getTagByCourseId(@ApiParam(value = "课程ID", required = true)
                                                  @PathVariable(value = "courseId") int courseId) {
         return tagService.selectTagsByCourseId(courseId);
+    }
+
+    @ApiOperation(value = "某课程所有已添加标签", notes = "根据课程ID获取所有已添加标签")
+    @GetMapping(value = "/add", produces = "application/json")
+    public ResponseDTO addTagsByCourseId(@ApiParam(value = "课程ID", required = true)
+                                           @PathVariable(value = "courseId") ArrayList<Tag> tags) {
+        int result = tagService.insertTags(tags);
+        return new ResponseDTO(ResponseDTO.OK);
     }
 }

@@ -11,10 +11,22 @@
 
     <resultMap id="resultMap" type="com.ouc.pces.entity.Comment">
         <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="courseId" jdbcType="INTEGER" property="courseId"/>
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="date" jdbcType="TIMESTAMP" property="date"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="resultMap">
-        select * from course
+    <select id="selectByCourseId" parameterType="java.lang.Integer" resultMap="resultMap">
+        select * from comment where courseId = #{courseId}
     </select>
+
+    <insert id="insert">
+        insert into comment (courseId, comment, userId, date) values (#{courseId}, #{comment}, #{userId}, #{date})
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from comment where id = #{id}
+    </delete>
 
 </mapper>

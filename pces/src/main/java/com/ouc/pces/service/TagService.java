@@ -24,4 +24,9 @@ public class TagService {
         return tagMapper.selectTagsByCourseId(courseId);
     }
 
+    public int insertTags(ArrayList<Tag> tags){
+
+        return 0;
+    }
+
 }

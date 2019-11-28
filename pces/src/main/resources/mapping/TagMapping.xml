@@ -13,8 +13,32 @@
         <result column="id" jdbcType="INTEGER" property="id"/>
     </resultMap>
 
+    <resultMap id="count" type="java.lang.Integer">
+    </resultMap>
+
     <select id="selectAll" resultMap="resultMap">
-        select * from course
+        select *
+        from course
     </select>
 
+    <select id="checkIsExist" resultMap="count">
+        select count(*)
+        from tag
+        where courseId = #{courseId}
+          and tagId = #{tagId}
+    </select>
+
+    <update id="updateTags" parameterType="List">
+        update tag set num = num+1
+        <foreach collection="list" item="item" index="index">
+            where tagId = #{item.tagId} and courseId = #{item.courseId}
+        </foreach>
+    </update>
+
+    <insert id="insertTags" parameterType="List">
+        insert into tag(courseId, tagId, num)
+        <foreach collection="list" item="item" index="index">
+            values (#{item.courseId}, #{item.tagId}, 1)
+        </foreach>
+    </insert>
 </mapper>
