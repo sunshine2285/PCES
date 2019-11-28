@@ -19,26 +19,26 @@ public class CourseController {
     CourseService courseService;
 
     @ApiOperation(value = "获取所有公共基础课程", notes = "获取所有公共基础课程")
-    @PostMapping(value = "/basicCourse", produces = "application/json")
+    @GetMapping(value = "/basicCourse", produces = "application/json")
     public ArrayList<Course> getBasicCourse() {
-        return new ArrayList<>();
+        return courseService.selectByCourseType("公共基础课");
     }
 
-    @ApiOperation(value = "获取所有公共基础课程", notes = "获取所有公共基础课程")
-    @PostMapping(value = "/commonCourse", produces = "application/json")
+    @ApiOperation(value = "获取所有通识课程", notes = "获取所有通识课程")
+    @GetMapping(value = "/commonCourse", produces = "application/json")
     public ArrayList<Course> getCommonCourse() {
-        return new ArrayList<>();
+        return courseService.selectByCourseType("通识课");
     }
 
-    @ApiOperation(value = "获取所有公共基础课程", notes = "获取所有公共基础课程")
-    @PostMapping(value = "/SpecializedCourse", produces = "application/json")
+    @ApiOperation(value = "获取所有专业课程", notes = "获取所有专业课程")
+    @GetMapping(value = "/SpecializedCourse", produces = "application/json")
     public ArrayList<Course> getSpecializedCourse() {
-        return new ArrayList<>();
+        return courseService.selectByCourseType("专业课");
     }
 
     @ApiOperation(value = "根据ID获取课程", notes = "根据用户Id获取课程详情")
-    @PostMapping(value = "/{id}", produces = "application/json")
+    @GetMapping(value = "/{id}", produces = "application/json")
     public Course getCourse(@ApiParam(value = "课程Id", required = true) @PathVariable int id) {
-        return new Course();
+        return courseService.selectById(id);
     }
 }

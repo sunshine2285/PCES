@@ -3,14 +3,14 @@ package com.ouc.pces.entity;
 
 public class Course {
 
-  private long id;
-  private String name;
-  private String teacher;
-  private String schoolTime;
-  private String campus;
-  private String courseType;
-  private String remark;
-  private String introduction;
+    private long id;
+    private String name;
+    private String teacher;
+    private String schoolTime;
+    private String campus;
+    private String courseType;
+    private String remark;
+    private String introduction;
 
     @Override
     public String toString() {
@@ -27,74 +27,74 @@ public class Course {
     }
 
     public long getId() {
-    return id;
-  }
+        return id;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
 
-  public String getTeacher() {
-    return teacher;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setTeacher(String teacher) {
-    this.teacher = teacher;
-  }
-
-
-  public String getSchoolTime() {
-    return schoolTime;
-  }
-
-  public void setSchoolTime(String schoolTime) {
-    this.schoolTime = schoolTime;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
-  public String getCampus() {
-    return campus;
-  }
+    public String getTeacher() {
+        return teacher;
+    }
 
-  public void setCampus(String campus) {
-    this.campus = campus;
-  }
-
-
-  public String getCourseType() {
-    return courseType;
-  }
-
-  public void setCourseType(String courseType) {
-    this.courseType = courseType;
-  }
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
 
 
-  public String getRemark() {
-    return remark;
-  }
+    public String getSchoolTime() {
+        return schoolTime;
+    }
 
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
+    public void setSchoolTime(String schoolTime) {
+        this.schoolTime = schoolTime;
+    }
 
 
-  public String getIntroduction() {
-    return introduction;
-  }
+    public String getCampus() {
+        return campus;
+    }
 
-  public void setIntroduction(String introduction) {
-    this.introduction = introduction;
-  }
+    public void setCampus(String campus) {
+        this.campus = campus;
+    }
+
+
+    public String getCourseType() {
+        return courseType;
+    }
+
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
+    }
+
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
 
 }

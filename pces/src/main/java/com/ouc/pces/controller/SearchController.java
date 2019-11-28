@@ -22,6 +22,6 @@ public class SearchController {
     @ApiOperation(value = "搜索相关课程", notes = "根据关键字通过课程名搜索")
     @GetMapping("/search/{searchStr}")
     public ArrayList<Course> search(@PathVariable String searchStr){
-        return new ArrayList<>();
+        return courseService.selectByKeyWords(searchStr);
     }
 }

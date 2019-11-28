@@ -1,4 +1,4 @@
-package com.sample;
+package com.ouc.pces.entity;
 
 
 public class Tag {
