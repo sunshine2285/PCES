@@ -34,7 +34,8 @@ public class TagService {
                 update_tags.add(tag);
             }
         }
-        tagMapper.updateTags(update_tags);
-        return tagMapper.insertTags(insert_tags);
+        if(!insert_tags.isEmpty()) tagMapper.insertTags(insert_tags);
+        if(!update_tags.isEmpty()) tagMapper.updateTags(update_tags);
+        return 1;
     }
 }

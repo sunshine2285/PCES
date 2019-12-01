@@ -24,4 +24,13 @@ public class TagType {
     this.tag = tag;
   }
 
+  @Override
+  public String toString() {
+    return "TagType{" +
+            "id=" + id +
+            ", tag='" + tag + '\'' +
+            '}';
+  }
 }
+
+
