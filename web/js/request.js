@@ -1,7 +1,5 @@
-let baseUrl = "http://sunshine-sun.cn:2285/";
-
 function request (url, method, data, callback) {
-    fetch(baseUrl + url, {
+    fetch(url, {
             headers: {
                 'content-type': 'application/json'
             },
