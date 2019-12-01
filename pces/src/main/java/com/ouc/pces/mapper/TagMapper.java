@@ -4,7 +4,6 @@ import com.ouc.pces.entity.Tag;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public interface TagMapper {

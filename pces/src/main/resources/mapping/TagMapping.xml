@@ -10,16 +10,17 @@
     <resultMap id="count" type="java.lang.Integer">
     </resultMap>
 
-    <select id="selectAll" resultMap="resultMap">
+    <select id="selectTagsByCourseId" resultMap="resultMap">
         select *
         from tag
+        where courseId = #{courseId}
     </select>
 
     <select id="checkIsExist" resultMap="count">
         select count(*)
         from tag
         where courseId = #{courseId}
-          and tagId = #{tagId}
+        and tagId = #{tagId}
     </select>
 
     <update id="updateTags" parameterType="List">
@@ -31,7 +32,7 @@
     <insert id="insertTags" parameterType="List">
         insert into tag(courseId, tagId, num)
         values
-        <foreach collection="list" item="item" index="index" separator =",">
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.courseId}, #{item.tagId}, 1)
         </foreach>
     </insert>
