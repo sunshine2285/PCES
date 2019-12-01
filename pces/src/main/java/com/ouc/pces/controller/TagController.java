@@ -36,7 +36,7 @@ public class TagController {
     }
 
     @ApiOperation(value = "添加标签", notes = "根据课程ID添加标签")
-    @GetMapping(value = "/add", produces = "application/json")
+    @PostMapping(value = "/add", produces = "application/json")
     public ResponseDTO addTagsByCourseId(@RequestBody ArrayList<Tag> tags) {
         System.out.println(tags);
         int result = tagService.addTags(tags);
