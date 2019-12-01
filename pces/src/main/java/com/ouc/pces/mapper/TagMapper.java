@@ -9,8 +9,7 @@ import java.util.List;
 @Repository
 public interface TagMapper {
     ArrayList<Tag> selectTagsByCourseId(int courseId);
-
-    int checkIsExist(int courseId, int tagId);
+    int checkIsExist(long courseId, long tagId);
     int insertTags(ArrayList<Tag> tags);
     int updateTags(ArrayList<Tag> tags);
 }

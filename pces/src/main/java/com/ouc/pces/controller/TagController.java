@@ -23,7 +23,7 @@ public class TagController {
     TagService tagService;
 
     @ApiOperation(value = "所有标签", notes = "获取所有可添加标签")
-    @GetMapping(value = "", produces = "application/json")
+    @GetMapping(value = "/getAll", produces = "application/json")
     public ArrayList<TagType> getAllTagType() {
         return tagService.selectAll();
     }
@@ -35,11 +35,10 @@ public class TagController {
         return tagService.selectTagsByCourseId(courseId);
     }
 
-    @ApiOperation(value = "某课程所有已添加标签", notes = "根据课程ID获取所有已添加标签")
+    @ApiOperation(value = "添加标签", notes = "根据课程ID添加标签")
     @GetMapping(value = "/add", produces = "application/json")
-    public ResponseDTO addTagsByCourseId(@ApiParam(value = "课程ID", required = true)
-                                           @PathVariable(value = "courseId") ArrayList<Tag> tags) {
-        int result = tagService.insertTags(tags);
-        return new ResponseDTO(ResponseDTO.OK);
+    public ResponseDTO addTagsByCourseId(ArrayList<Tag> tags) {
+        int result = tagService.addTags(tags);
+        return new ResponseDTO(ResponseDTO.OK);     //默认添加评论一定成功
     }
 }

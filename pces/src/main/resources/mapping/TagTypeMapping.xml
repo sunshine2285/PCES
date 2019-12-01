@@ -14,7 +14,7 @@
     </resultMap>
 
     <select id="selectAll" resultMap="resultMap">
-        select * from course
+        select * from tagtype
     </select>
 
 </mapper>
