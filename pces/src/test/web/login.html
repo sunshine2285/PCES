@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>LoginTest</title>
-    <script src="request.js"></script>
+    <script src="util.js"></script>
     <style>
         .login-block {
             position: absolute;
@@ -33,18 +33,25 @@
 
     <script>
         function loginCallBack (result) {
-            console.log('result :', result);
+            console.log(result);
+            if(result.code == 200){
+                console.log(window.location);
+                console.log(result.data);
+                setCookie("user", result.data);
+                console.log(getCookie("user"));
+                //页面跳转
+                window.location.href = "http://localhost/pces/index.html";
+            }
         }
 
         function login () {
-            var url = "login/student";
+            var url = baseUrl + "login/student";
             let userData = {
                 userId: document.getElementById("userId").value,
                 password: document.getElementById("password").value
             }
             request(url,"POST", userData, loginCallBack);
         }
-        request("college", "GET", null, loginCallBack);
     </script>
 </head>
 

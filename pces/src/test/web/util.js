@@ -1,7 +1,7 @@
 let baseUrl = "http://sunshine-sun.cn:2285/";
 
 function request (url, method, data, callback) {
-    fetch(baseUrl + url, {
+    fetch(url, {
             headers: {
                 'content-type': 'application/json'
             },
@@ -15,6 +15,20 @@ function request (url, method, data, callback) {
         }).catch(error => {
             console.error(error);
         });
+}
+
+function setCookie (key, value) {
+    // document.cookie = key + "=" + value + ";path=/;SameSite=None;Secure=true;";
+    document.cookie = key + "=" + JSON.stringify(value) + ";";
+}
+
+function getCookie (key) {
+    let result = document.cookie.match("(^|[^;]+)\\s*" + key + "\\s*=\\s*([^;]+)");
+    return result ? JSON.parse(result.pop()) : "";
+}
+
+function removeCookie(key) {
+    document.cookie = key + "=;"; 
 }
 
 //回掉函数
