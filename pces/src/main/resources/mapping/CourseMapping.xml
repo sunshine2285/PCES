@@ -11,10 +11,30 @@
 
     <resultMap id="resultMap" type="com.ouc.pces.entity.Course">
         <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="majorId" jdbcType="INTEGER" property="majorId"/>
+        <result column="teacher" jdbcType="VARCHAR" property="teacher"/>
+        <result column="schoolTime" jdbcType="VARCHAR" property="schoolTime"/>
+        <result column="campus" jdbcType="VARCHAR" property="campus"/>
+        <result column="courseType" jdbcType="VARCHAR" property="courseType"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="resultMap">
-        select * from course
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="resultMap">
+        select * from course where id = #{id}
+    </select>
+
+    <select id="selectByCourseType" parameterType="java.lang.String" resultMap="resultMap">
+        select * from course where courseType = #{courseType}
+    </select>
+
+    <select id="selectByMajorId" parameterType="java.lang.Integer" resultMap="resultMap">
+        select * from course where majorId = #{majorId}
+    </select>
+
+    <select id="selectByKeyWords" parameterType="java.lang.String" resultMap="resultMap">
+        select * from course where name like CONCAT('%', #{courseType}, '%')
     </select>
 
 </mapper>

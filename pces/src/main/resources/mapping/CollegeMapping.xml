@@ -9,12 +9,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ouc.pces.mapper.CollegeMapper">
 
-    <resultMap id="collegeMap" type="com.ouc.pces.entity.College">
+    <resultMap id="resultMap" type="com.ouc.pces.entity.College">
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="collegeMap">
+    <select id="selectAll" resultMap="resultMap">
         select * from college
     </select>
 

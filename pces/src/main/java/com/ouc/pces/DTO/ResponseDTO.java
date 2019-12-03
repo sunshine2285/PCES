@@ -34,6 +34,7 @@ public class ResponseDTO {
     }
 
     public ResponseDTO(int code) {
+        this.code = code;
     }
 
     public ResponseDTO(int code, String msg) {
