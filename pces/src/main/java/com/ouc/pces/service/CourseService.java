@@ -16,6 +16,10 @@ public class CourseService {
         return courseMapper.selectByCourseType(courseType);
     }
 
+    public ArrayList<Course> selectByMajorId(int majorId){
+        return courseMapper.selectByMajorId(majorId);
+    }
+
     public Course selectById(int id){
         return courseMapper.selectById(id);
     }

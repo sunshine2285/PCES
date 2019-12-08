@@ -19,22 +19,30 @@ public class CourseController {
     CourseService courseService;
 
     @ApiOperation(value = "获取所有公共基础课程", notes = "获取所有公共基础课程")
-    @GetMapping(value = "/basicCourse", produces = "application/json")
+    @GetMapping(value = "/basic", produces = "application/json")
     public ArrayList<Course> getBasicCourse() {
         return courseService.selectByCourseType("公共基础课");
     }
 
     @ApiOperation(value = "获取所有通识课程", notes = "获取所有通识课程")
-    @GetMapping(value = "/commonCourse", produces = "application/json")
+    @GetMapping(value = "/common", produces = "application/json")
     public ArrayList<Course> getCommonCourse() {
-        return courseService.selectByCourseType("通识课");
+        return courseService.selectByCourseType("通识选修课");
     }
 
     @ApiOperation(value = "获取所有专业课程", notes = "获取所有专业课程")
-    @GetMapping(value = "/SpecializedCourse", produces = "application/json")
+    @GetMapping(value = "/specialized", produces = "application/json")
     public ArrayList<Course> getSpecializedCourse() {
         return courseService.selectByCourseType("专业课");
     }
+
+    @ApiOperation(value = "某专业的专业课程", notes = "根据专业ID获取专业课程")
+    @GetMapping(value = "/specialized/{majorId}", produces = "application/json")
+    public ArrayList<Course> getSpecializedCourseByMajorId(@ApiParam(value = "课程ID", required = true)
+                                                           @PathVariable int majorId) {
+        return courseService.selectByMajorId(majorId);
+    }
+
 
     @ApiOperation(value = "根据ID获取课程", notes = "根据用户Id获取课程详情")
     @GetMapping(value = "/{id}", produces = "application/json")

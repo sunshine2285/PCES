@@ -12,6 +12,7 @@
     <resultMap id="resultMap" type="com.ouc.pces.entity.Course">
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="majorId" jdbcType="INTEGER" property="majorId"/>
         <result column="teacher" jdbcType="VARCHAR" property="teacher"/>
         <result column="schoolTime" jdbcType="VARCHAR" property="schoolTime"/>
         <result column="campus" jdbcType="VARCHAR" property="campus"/>
@@ -26,6 +27,10 @@
 
     <select id="selectByCourseType" parameterType="java.lang.String" resultMap="resultMap">
         select * from course where courseType = #{courseType}
+    </select>
+
+    <select id="selectByMajorId" parameterType="java.lang.Integer" resultMap="resultMap">
+        select * from course where majorId = #{majorId}
     </select>
 
     <select id="selectByKeyWords" parameterType="java.lang.String" resultMap="resultMap">

@@ -4,6 +4,7 @@ package com.ouc.pces.entity;
 public class Course {
 
     private long id;
+    private long majorId;
     private String name;
     private String teacher;
     private String schoolTime;
@@ -16,6 +17,7 @@ public class Course {
     public String toString() {
         return "Course{" +
                 "id=" + id +
+                ", majorId=" + majorId +
                 ", name='" + name + '\'' +
                 ", teacher='" + teacher + '\'' +
                 ", schoolTime='" + schoolTime + '\'' +
@@ -34,6 +36,13 @@ public class Course {
         this.id = id;
     }
 
+    public long getMajorId() {
+        return majorId;
+    }
+
+    public void setMajorId(long majorId) {
+        this.majorId = majorId;
+    }
 
     public String getName() {
         return name;
