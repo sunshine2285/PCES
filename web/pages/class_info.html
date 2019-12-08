@@ -11,16 +11,8 @@
 
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/font-awesome.css">
-    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/class_info.css">
-    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
-    <style type="text/css">
-        #tag-cloud {
-            width: 640px;
-            height: 480px;
-            margin: 50px auto;
-        }
-    </style>
 </head>
 
 <body>
@@ -44,7 +36,7 @@
                 <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
                     <li class="list-inline-item"><a href="https://www.github.com"><i class="fa fa-github"></i></a></li>
                 </ul>
-                <a href="" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
+                <a href="#" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
             </div>
         </div>
     </div>
@@ -57,14 +49,58 @@
         <div class="row">
             <div class="col-md-6">
                 <ul class="list-group list-group-flush class-detail-list">
-                    <li class="list-group-item">授课教师：</li>
-                    <li class="list-group-item">上课时间：</li>
-                    <li class="list-group-item">校区：</li>
-                    <li class="list-group-item">课程类型：</li>
-                    <li class="list-group-item">备注：</li>
+                    <li class="list-group-item">授课教师：徐文华</li>
+                    <li class="list-group-item">上课时间：周四1-2节</li>
+                    <li class="list-group-item">校区：崂山校区</li>
+                    <li class="list-group-item">课程类型：通识选修课</li>
+                    <li class="list-group-item">备注：无</li>
                 </ul>
                 <div class="col-md-6 class-tag">该课程评价常用的标签</div>
-                <textarea class="tag-line" placeholder="添加fs标签">和蔼可亲 平易近人 温文儒雅 善解人意 学富五车</textarea>
+                <ul class="tag-box">
+                    <li class="tag">学富五车</li>
+                    <li class="tag">学富五车</li>
+                    <li class="tag">学富五车</li>
+                    <li class="tag">儒雅随和</li>
+                    <!-- Button trigger modal -->
+                    <li class="tag" data-toggle="modal" data-target="#staticBackdrop">
+                        <i class="fa fa-plus"></i>
+                    </li>
+                </ul>
+
+                <!-- Tag Modal -->
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">选择标签</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="all-tags">
+                                    <p>所有标签</p>
+                                    <ul class="tag-box" id="all-tags">
+                                        <li class="tag">儒雅随和 <i class="fa fa-plus"></i></li>
+                                        <li class="tag">风趣幽默 <i class="fa fa-plus"></i></li>
+                                        <li class="tag">严肃刻板 <i class="fa fa-plus"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="choose-tags">
+                                    <p>我选择的标签</p>
+                                    <ul class="tag-box" id="my-tags">
+                                        <li class="tag">儒雅随和</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary">完成</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
@@ -135,10 +171,12 @@
                             <div class="comment-info">
                                 <div class="comment-description pb-0">
                                     <div class="input-group">
-                                        <h4>天臻</h4>
+                                        <label for="userName">天臻</label>
                                         <form action="">
                                             <div class="input-group form-group">
-                                                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                <input type="text" class="form-control" placeholder=""
+                                                       aria-label="Example text with button addon"
+                                                       aria-describedby="button-addon1">
                                             </div>
                                         </form>
 
@@ -173,8 +211,8 @@
 <!-- Javascript -->
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
-<script src="../js/jquery.svg3dtagcloud.min.js"></script>
-<script src="../js/class_tag.js"></script>
+<script src="../js/tag.js"></script>
+<script src="../js/class_info.js"></script>
 </body>
 </html>
 
