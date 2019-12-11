@@ -37,3 +37,10 @@
     background-color: #ffffff;
     border-color: #dee2e6;
 }
+.footer{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+
+}

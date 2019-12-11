@@ -21,7 +21,7 @@
             <div class="container-fluid position-relative pt-2">
                 <div class="logo-wrapper">
                     <div class="site-logo">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="index.html">
                             <img class="logo-icon mr-2" src="../img/logo.svg" alt="logo">
                             <span class="logo-text">PCES<span class="text-alt">评课网</span></span>
                         </a>
@@ -33,9 +33,9 @@
                         <button type="submit" class="btn search-btn" value="Search"><i class="fa fa-search"></i></button>
                     </form>
                     <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-                        <li class="list-inline-item"><a href="https://www.github.com"><i class="fa fa-github"></i></a></li>
+                        <li class="list-inline-item"><a href="user.html"><i class="fa fa-github"></i></a></li>
                     </ul>
-                    <a href="" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
+                    <a href="login.html" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
                 </div>
             </div>
         </div>
@@ -57,13 +57,13 @@
         <div id="div1">
             <table  class="table table-condensed table-hover">
                 <tbody>
-                <tr><td>用户名</td><td>小明</td></tr>
-                <tr><td>真实姓名</td><td>小明</td></tr>
-                <tr><td>性别</td><td>男</td></tr>
-                <tr><td>学号</td><td>17020031000</td></tr>
-                <tr><td>学院</td><td>信息科学与工程学院</td></tr>
-                <tr><td>专业</td><td>计算机科学与技术</td></tr>
-                <tr><td>邮箱</td><td>1234567890@ouc.edu.cn</td></tr>
+                <tr><td>用户名</td><td id="nickname">小明</td></tr>
+                <tr><td>真实姓名</td><td id="name">小明</td></tr>
+                <tr><td>学号</td><td id="studentId">17020031000</td></tr>
+                <tr><td>学院</td><td id="college">信息科学与工程学院</td></tr>
+                <tr><td>专业</td><td id="major">计算机科学与技术</td></tr>
+                <tr><td>年级</td><td id="grade">2017</td></tr>
+                <tr><td>邮箱</td><td id="mail">1234567890@ouc.edu.cn</td></tr>
                 </tbody>
             </table>
         </div>
@@ -129,7 +129,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">验证邮箱</label>
                                 <div class="col-sm-10">
-                                    <p>1234567890@ouc.edu.cn</p>
+                                    <p id="div3-email">1234567890@ouc.edu.cn</p>
                                 </div>
                             </div>
                             &nbsp;&nbsp;&nbsp;
@@ -170,6 +170,9 @@
         </div>
     </footer>
     <!-- Javascript -->
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/util.js"></script>
     <script src="../js/user.js"></script>
 </body>
 </html>
