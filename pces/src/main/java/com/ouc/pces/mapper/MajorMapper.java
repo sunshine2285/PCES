@@ -14,5 +14,6 @@ import java.util.ArrayList;
 
 @Repository
 public interface MajorMapper {
+    public Major selectById(int id);
     public ArrayList<Major> selectByCollegeId(int collegeId);
 }
