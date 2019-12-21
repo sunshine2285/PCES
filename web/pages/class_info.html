@@ -22,30 +22,33 @@
         <div class="container-fluid position-relative pt-2">
             <div class="logo-wrapper">
                 <div class="site-logo">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.html">
                         <img class="logo-icon mr-2" src="../img/logo.svg" alt="logo">
                         <span class="logo-text">PCES<span class="text-alt">评课网</span></span>
                     </a>
                 </div>
             </div>
             <div class="d-flex justify-content-end align-items-center pt-2">
-                <form class="search-form" id="search-form">
+                <form class="search-form" id="search-form" action="search_result.html">
                     <input type="text" placeholder="你可能感兴趣的课程..." name="search" class="form-control search-input">
-                    <button type="submit" class="btn search-btn" value="Search"><i class="fa fa-search"></i></button>
+                    <button class="btn search-btn" ><i class="fa fa-search"></i></button>
                 </form>
-                <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-                    <li class="list-inline-item"><a href="https://www.github.com"><i class="fa fa-github"></i></a></li>
+                <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex hiddenx" id="icon">
+                    <li class="list-inline-item">
+                        <a href="user.html"><i class="fa fa-github"></i></a>
+                        <p5 id="navname"></p5>
+                    </li>
                 </ul>
-                <a href="#" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
+
+                <a href="login.html" class="btn btn-primary d-none d-lg-flex hiddenx" id="login" >登录/注册</a>
             </div>
         </div>
     </div>
 </header>
-
 <!-- class detail -->
 <div class="class-detail">
     <div class="container">
-        <h3>定向越野</h3>
+        <h3 id="course-name">定向越野</h3>
         <div class="row">
             <div class="col-md-6">
                 <ul class="list-group list-group-flush class-detail-list">
@@ -56,7 +59,7 @@
                     <li class="list-group-item">备注：无</li>
                 </ul>
                 <div class="col-md-6 class-tag">该课程评价常用的标签</div>
-                <ul class="tag-box">
+                <ul class="tag-box" id="course-tags">
                     <li class="tag">学富五车</li>
                     <li class="tag">学富五车</li>
                     <li class="tag">学富五车</li>
@@ -90,7 +93,6 @@
                                 <div class="choose-tags">
                                     <p>我选择的标签</p>
                                     <ul class="tag-box" id="my-tags">
-                                        <li class="tag">儒雅随和</li>
                                     </ul>
                                 </div>
                             </div>
@@ -126,29 +128,8 @@
 <div class="class-comment">
     <div class="container">
         <div class="class-comment-title">课程评论</div>
-        <div class="class-comment-list">
-            <div class="comment-item">
-                <div class="comment-item-inner">
-                    <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
-                    <div class="comment-info">
-                        <div class="comment-description">
-                            <h4>梦回故里</h4>
-                            <p>太牛了，清新的设计，让人爱不释手</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-item-inner">
-                    <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
-                    <div class="comment-info">
-                        <div class="comment-description">
-                            <h4>vera</h4>
-                            <p>在你的网站上，我看到了最美的风景,太牛了，清新的设计，让人爱不释手</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="class-comment-list" id="comment-list">
+
             <div class="comment-item">
                 <div class="comment-item-inner">
                     <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
@@ -171,7 +152,7 @@
                             <div class="comment-info">
                                 <div class="comment-description pb-0">
                                     <div class="input-group">
-                                        <label for="userName">天臻</label>
+                                        <label id="comment-username"></label>
                                         <form action="">
                                             <div class="input-group form-group">
                                                 <input type="text" class="form-control" placeholder=""
@@ -209,10 +190,42 @@
 </footer>
 
 <!-- Javascript -->
+<script type="text/template-comment">
+    <div class="comment-item">
+        <div class="comment-item-inner">
+            <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
+            <div class="comment-info">
+                <div class="comment-description">
+                    <h4>{date}</h4>
+                    <p>{comment}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/template-tag">
+     <li class="tag">{tag} <i class="fa fa-plus"></i></li>
+</script>
+<script type="text/template-course-tag">
+    <li class="tag">学富五车</li>
+</script>
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
-<script src="../js/tag.js"></script>
 <script src="../js/class_info.js"></script>
+<script>
+    // 没登录
+    if(getCookie("user")===undefined || getCookie("user")==="")
+    {
+
+        document.getElementById("icon").classList.add("hiddenx");
+        document.getElementById("login").classList.remove("hiddenx");
+    }
+    else{
+        // document.getElementById("navname").innerText = getCookie("user").nickname;
+        document.getElementById("login").classList.add("hiddenx");
+        document.getElementById("icon").classList.remove("hiddenx");
+    }
+</script>
 </body>
 </html>
 
