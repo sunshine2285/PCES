@@ -1,6 +1,6 @@
 function loginCallBack(result) {
     console.log(result);
-    if (result.code == 200) {
+    if (result.code === 200) {
         console.log(window.location);
         console.log(result.data);
         setCookie("user", result.data);

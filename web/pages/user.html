@@ -71,7 +71,7 @@
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" onsubmit="changeEmail()">
                             <div>
                                 <label for="oldEmail" class="col-sm-2 control-label">原邮箱</label>
                                 <p id="oldEmail" class="col-sm-2">1234567890@ouc.edu.cn</p>
@@ -83,9 +83,15 @@
                                 </div>
                             </div>
                             <div>
+                                <label for="password2" class="col-sm-2 control-label">登录密码</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="password2" />
+                                </div>
+                            </div>
+                            <div>
                                 <label for="code" class="col-sm-2 control-label">验证码</label>
                                 <div class="col-sm-3">
-                                    <input class="form-control" id="code" />
+                                    <input class="form-control" id="code2" />
                                 </div>
                                 <br/>
 
@@ -107,7 +113,7 @@
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" onsubmit="changePassword()">
                             <div class="form-group">
                                 <label for="oldpassword" class="col-sm-2 control-label">原密码</label>
                                 <div class="col-sm-10">
