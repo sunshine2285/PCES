@@ -33,6 +33,6 @@ function init(){
         document.getElementById("username").value = userData.userId;
         document.getElementById("password").value = userData.password;
     }
-
+    removeCookie("user");
 }
 init();
