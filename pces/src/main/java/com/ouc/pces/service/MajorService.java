@@ -19,6 +19,9 @@ public class MajorService {
     @Autowired
     MajorMapper majorMapper;
 
+    public Major selectById(int id){
+        return majorMapper.selectById(id);
+    }
     public ArrayList<Major> selectByCollegeId(int collegeId){
         return majorMapper.selectByCollegeId(collegeId);
     }

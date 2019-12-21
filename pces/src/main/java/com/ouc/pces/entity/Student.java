@@ -7,7 +7,6 @@
 
 package com.ouc.pces.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -24,7 +23,6 @@ public class Student {
     @ApiModelProperty(value = "邮箱",required = true)
     private String mail;
     @ApiModelProperty("用户密码")
-    @JsonIgnore
     private String password;
     @ApiModelProperty(value = "学院id",required = true)
     private int college;

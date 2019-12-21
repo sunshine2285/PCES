@@ -4,15 +4,12 @@
     margin-bottom: 30px;
 }
 
-.class-tag {
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
 
 
 /** class tag css */
-.tag-line {
-    display: none;
+.class-tag {
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .tag-box {
@@ -26,37 +23,34 @@
 }
 
 .tag-box li {
-    padding: 4px 6px;
+    padding: 4px 8px;
     float: left;
     display: inline-block;
 }
 
-.tag-box li.tags {
+.tag-box .tag {
     background: #48cd64;
     color: #fff;
     border-radius: 4px;
-    margin: 4px 3px;
+    margin: 4px 7px;
     position: relative;
 }
 
-.tag-box li.tags.edit .input-tag {
-    height: auto;
+.tag-box li a {
+    color: #ffffff;
 }
 
-
-.tag-box li .input-tag {
-    color: #fff;
-    height: 24px;
-    vertical-align: middle;
-    border: none;
-    border-bottom: 2px solid #3dd584;
+.tag-box li a:hover {
+    color: #28b76b;
 }
 
-.tag-box li .input-tag:focus {
-    color: #3dd584;
-    outline: none;
+.modal-body .tag-box{
+    margin-bottom: 10px;
 }
 
+.modal-body p{
+    margin-bottom: 0;
+}
 
 
 /** class comment css */

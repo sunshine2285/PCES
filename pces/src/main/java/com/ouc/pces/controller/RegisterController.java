@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
     @Autowired
     StudentService studentService;
+
     TeacherService teacherService;
 
     @ApiOperation(value = "学生注册", notes = "学生注册 Rest api")
