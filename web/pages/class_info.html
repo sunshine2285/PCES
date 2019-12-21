@@ -138,32 +138,11 @@
                     </div>
                 </div>
             </div>
-            <div class="comment-item">
-                <div class="comment-item-inner">
-                    <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
-                    <div class="comment-info">
-                        <div class="comment-description">
-                            <h4>vera</h4>
-                            <p>在你的网站上，我看到了最美的风景,太牛了，清新的设计，让人爱不释手</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-item-inner">
-                    <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
-                    <div class="comment-info">
-                        <div class="comment-description">
-                            <h4>天臻</h4>
-                            <p>简约，好看，看了你的知识图片，哇 真强大</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-md-6"></div>
                 <div class="col-md-2 d-flex justify-content-end align-items-center pt-2">
-                    <a href="" class="btn btn-primary d-none d-lg-flex mb-5" id="login">发表</a>
+                    <a href="sumbitComment()" class="btn btn-primary d-none d-lg-flex mb-5" id="login">发表</a>
                 </div>
                 <div class="col-md-4 comment-input">
                     <div class="comment-item">
@@ -171,10 +150,11 @@
                             <div class="comment-info">
                                 <div class="comment-description pb-0">
                                     <div class="input-group">
-                                        <label for="userName">天臻</label>
+                                        <label>${user.name}</label>
                                         <form action="">
                                             <div class="input-group form-group">
                                                 <input type="text" class="form-control" placeholder=""
+                                                       id="user-comment"
                                                        aria-label="Example text with button addon"
                                                        aria-describedby="button-addon1">
                                             </div>
@@ -211,7 +191,7 @@
 <!-- Javascript -->
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
-<script src="../js/tag.js"></script>
+<script src="../js/util.js"></script>
 <script src="../js/class_info.js"></script>
 </body>
 </html>

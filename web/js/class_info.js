@@ -1,31 +1,38 @@
+/* Choose Tags */
+$('#all-tags li').on('click', function () {
+    let li = document.createElement("li");
+    li.innerText = this.innerText;
+    li.classList.add('tag');
+    document.getElementById('my-tags').appendChild(li);
+});
+
+
+
+function commentCallBack (result) {
+    if(result.code == 200){
+        //页面跳转
+        window.location.href = "http://localhost/pces/class_info.html";
+    }
+}
+
+
 function getTags() {
+    let course = getCookie("course");
+
 
 }
 
-function uploadComment() {
-    let userName = document.getElementById("userName").value;
-    let comment = document.getElementById("comment").value;
-
-    let url = "";
+function submitComment() {
+    let url = baseUrl +"comment/add";
+    let user = getCookie("user");
+    let course = getCookie("course");
+    let comment = document.getElementById("user-comment").value;
 
     let commentData = {
         comment: comment,
-        courseId: 0,
-        userId: 0
+        courseId: course.id,
+        userId: user.id
     };
 
-    fetch(url, {
-        headers: {
-            'content-type': 'application/json'
-        },
-        mode: 'cors',
-        method: "POST",
-        body: JSON.stringify(commentData)
-    })
-        .then(response => response.json())
-        .then(result => {
-            console.log(result);
-        }).catch(error => {
-        console.error(error);
-    });
+    request(url,"POST",commentData,commentCallBack);
 }
