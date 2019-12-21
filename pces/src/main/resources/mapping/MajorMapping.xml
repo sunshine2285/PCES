@@ -19,4 +19,9 @@
         select * from major where collegeId = #{collegeId}
     </select>
 
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="majorMap">
+        select * from major where id = #{id}
+    </select>
+
+
 </mapper>

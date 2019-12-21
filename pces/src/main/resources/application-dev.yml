@@ -2,6 +2,8 @@ server:
   port: 2285
 
 spring:
+  jackson:
+    default-property-inclusion: non_null
   datasource:
     username: root
     password: 2285@sun

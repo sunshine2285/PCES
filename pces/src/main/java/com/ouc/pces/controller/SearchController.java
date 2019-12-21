@@ -16,12 +16,16 @@ import java.util.ArrayList;
 @CrossOrigin("*")
 @RestController
 public class SearchController {
+    final CourseService courseService;
+
     @Autowired
-    CourseService courseService;
+    public SearchController(CourseService courseService) {
+        this.courseService = courseService;
+    }
 
     @ApiOperation(value = "搜索相关课程", notes = "根据关键字通过课程名搜索")
     @GetMapping("/search/{searchStr}")
-    public ArrayList<Course> search(@PathVariable String searchStr){
+    public ArrayList<Course> search(@PathVariable String searchStr) {
         return courseService.selectByKeyWords(searchStr);
     }
 }
