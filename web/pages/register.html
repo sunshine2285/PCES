@@ -51,35 +51,52 @@
             
                 <form role="form">
                     <div class="form-group">
-                         <label for="exampleInputEmail1">用户名：</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                         <label for="username">用户名：</label><input type="text" class="form-control" id="username" />
                     </div>
                     <div class="form-group">
-                            <label for="exampleInputEmail1">密码：</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                            <label for="Password">密码：</label><input type="password" class="form-control" id="Password" />
                        </div>
                        <div class="form-group">
-                            <label for="exampleInputEmail1">学号：</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                            <label for="studentnumber">学号：</label><input type="text" class="form-control" id="studentnumber" />
                        </div>
                        <div class="form-group">
-                            <label for="exampleInputEmail1">邮箱：</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                            <label for="Email">邮箱：</label><input type="email" class="form-control" id="Email" />
                        </div>
-                       <div class="form-group">
-                            <td><label>性别</label></td>
-                            <td><input type="radio" name="gender" value="male"> 男
-                                <input type="radio" name="gender" value="female"> 女
-                            </td>
-                       </div>
+
                        
                        <div class="form-group">
-                            <label for="exampleInputEmail1">年级：</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                        <label for="grader">年级：</label>
+                        <select id="grader" name="grader" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
+                        border-color: #e0f7e6;" onchange="QryNull();">
+                            <option value="volvo">2016</option>
+                            <option value="saab">2017</option>
+                            <option value="opel">2018</option>
+                            <option value="audi">2019</option>
+                          </select>
                        </div>
                        <div class="form-group">
-                            <label for="exampleInputEmail1">学院：</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                            <label for="college">学院：</label>
+                            <select id="grader" name="grader" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
+                            border-color: #e0f7e6;" onchange="QryNull();">
+                                <option value="volvo">信息科学与工程学院</option>
+                                <option value="saab">海洋与大气学院</option>
+                                <option value="opel">工程学院</option>
+                                <option value="audi">化学学院</option>
+                              </select>
                        </div>
-                       <div class="form-group">
-                            <label for="exampleInputEmail1">专业：</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                       <div class="select">
+                        <label for="major">专业：</label>
+                        <select id="grader" name="grader" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
+                        border-color: #e0f7e6;" onchange="QryNull();">
+                            <option value="volvo">计算机科学与技术</option>
+                            <option value="saab">汉语言文学</option>
+                            <option value="opel">保密管理</option>
+                          </select>
                        </div>
-                       <div class="logD logDtip">
-                            <p style="text-align:center;">注册</p>
+                       <br>
+                       <br>                       
+                       <div class="logD logDtip" style="text-align:center;">
+                            <button class="btn btn-primary">注册</button>
                         </div>
                 </form>
             </div>
