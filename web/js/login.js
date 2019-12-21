@@ -15,28 +15,24 @@ function login() {
         userId: document.getElementById("username").value,
         password: document.getElementById("password").value
     }
-    console.log(userData);
+    if(document.getElementById("check").checked === true){
+        setCookie("loginData",userData);
+    }
     request(url, "POST", userData, loginCallBack);
 }
 
-function register() {
-    var url = baseUrl + "register/student";
-    let Data = {
-        activate: 1,
-        college: getQueryVariable("college"),
-        grade: getQueryVariable("grade"),
-        mail: getQueryVariable("email"),//替换%40为@
-        major: getQueryVariable("major"),
-        name: getQueryVariable("name"),
-        password:getQueryVariable("password"),
-        nickname: getQueryVariable("username"),
-        studentId: getQueryVariable("studentId"),
-        type: 1
-    }
-    console.log(Data);
-}
+
 function init(){
-    if(getQueryVariable("username")!=false)
-        register();
+    if(getCookie("studentId")!==undefined && getCookie("studentId")!=="")
+    {
+        document.getElementById("username").value = getCookie("studentId");
+        removeCookie("studentId");
+    }
+    else {
+        var userData = getCookie("loginData");
+        document.getElementById("username").value = userData.userId;
+        document.getElementById("password").value = userData.password;
+    }
+
 }
 init();
