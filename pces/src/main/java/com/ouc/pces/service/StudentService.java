@@ -35,8 +35,10 @@ public class StudentService {
             return new ResponseDTO(ResponseDTO.Forbidden, "密码错误");
         else if (student.getActivate() != 1) //用户处于未激活/冻结
             return new ResponseDTO(ResponseDTO.Forbidden, "户处于未激活/冻结");
-        else
+        else {
+            student.setPassword(null);
             return new ResponseDTO(ResponseDTO.OK, "登录成功", student);
+        }
     }
 
     /**
@@ -54,7 +56,7 @@ public class StudentService {
             return new ResponseDTO(ResponseDTO.Forbidden, "该学号已注册");
             //确保nickname不重复
         else if (studentMapper.checkNicknameExist(student.getNickname()))
-            return new ResponseDTO(ResponseDTO.Forbidden, "改昵称已被使用");
+            return new ResponseDTO(ResponseDTO.Forbidden, "该昵称已被使用");
             //todo:校验注册数据合法性
         else {
             int result = 0;

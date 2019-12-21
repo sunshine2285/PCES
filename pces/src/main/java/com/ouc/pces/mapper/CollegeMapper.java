@@ -8,6 +8,7 @@
 package com.ouc.pces.mapper;
 
 import com.ouc.pces.entity.College;
+import com.ouc.pces.entity.Major;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -15,4 +16,5 @@ import java.util.ArrayList;
 @Repository
 public interface CollegeMapper {
     ArrayList<College> selectAll();
+    College selectById(int id);
 }

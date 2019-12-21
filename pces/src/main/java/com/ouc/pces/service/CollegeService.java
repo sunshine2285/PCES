@@ -22,4 +22,7 @@ public class CollegeService {
     public ArrayList<College> selectAll(){
         return collegeMapper.selectAll();
     }
+    public College selectById(int id){
+        return collegeMapper.selectById(id);
+    }
 }

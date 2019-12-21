@@ -26,8 +26,6 @@ import java.util.ArrayList;
 public class CollegeController {
     @Autowired
     CollegeService collegeService;
-    @Autowired
-    MajorService majorService;
 
     @ApiOperation(value = "所有学院信息", notes = "获取所有学院信息，包含学院id和学院名称")
     @GetMapping(value = "", produces = "application/json")
@@ -35,10 +33,10 @@ public class CollegeController {
         return collegeService.selectAll();
     }
 
-    @ApiOperation(value = "某学院所有专业", notes = "根据学院ID获取该学院所有专业信息")
+    @ApiOperation(value = "某学院详情", notes = "根据学院ID获取该学院具体信息")
     @GetMapping(value = "/{collegeId}", produces = "application/json")
-    public ArrayList<Major> getMajorsByCollegeId(@ApiParam(value = "学院ID", required = true)
-                                                 @PathVariable(value = "collegeId") int collegeId) {
-        return majorService.selectByCollegeId(collegeId);
+    public College getMajorById(@ApiParam(value = "学院ID", required = true)
+                              @PathVariable(value = "collegeId") int collegeId) {
+        return collegeService.selectById(collegeId);
     }
 }
