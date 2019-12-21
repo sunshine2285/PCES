@@ -22,7 +22,7 @@
         <div class="container-fluid position-relative pt-2">
             <div class="logo-wrapper">
                 <div class="site-logo">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.html">
                         <img class="logo-icon mr-2" src="../img/logo.svg" alt="logo">
                         <span class="logo-text">PCES<span class="text-alt">评课网</span></span>
                     </a>
@@ -34,9 +34,9 @@
                     <button type="submit" class="btn search-btn" value="Search"><i class="fa fa-search"></i></button>
                 </form>
                 <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-                    <li class="list-inline-item"><a href="https://www.github.com"><i class="fa fa-github"></i></a></li>
+                    <li class="list-inline-item"><a href="user.html"><i class="fa fa-github"></i></a></li>
                 </ul>
-                <a href="" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
+                <a href="login.html" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
             </div>
         </div>
     </div>
@@ -48,71 +48,51 @@
 
         <div class="part-choice">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary">公共基础课</button>
-                <button type="button" class="btn btn-secondary">专业课</button>
-                <button type="button" class="btn btn-secondary">通识选修课</button>
+                <a href="class_part.html?type=basic"><button type="button" class="btn btn-secondary">公共基础课</button></a>
+                <a href="class_part.html?type=common"><button type="button" class="btn btn-secondary">专业课</button></a>
+                <a href="class_part.html?type=specialized"><button type="button" class="btn btn-secondary">通识选修课</button></a>
             </div>
-            <div class=""></div>
         </div>
 
         <div class="search-table">
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">学分</th>
-                    <th scope="col">开课校区</th>
+                    <th scope="col">序号</th>
+                    <th scope="col">课程名</th>
                     <th scope="col">任课教师</th>
+                    <th scope="col">上课时间</th>
+                    <th scope="col">开课校区</th>
+                    <th scope="col">类型</th>
                     <th scope="col">备注</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
-                </tr>
+                <tbody id="tr-content">
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="search-list-pagination">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <!--<div class="search-list-pagination">-->
+        <!--<nav aria-label="Page navigation example">-->
+            <!--<ul class="pagination">-->
+                <!--<li class="page-item">-->
+                    <!--<a class="page-link" href="#" aria-label="Previous">-->
+                        <!--<span aria-hidden="true">&laquo;</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="page-item"><a class="page-link" href="#">1</a></li>-->
+                <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+                <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                <!--<li class="page-item"><a class="page-link" href="#">...</a></li>-->
+                <!--<li class="page-item">-->
+                    <!--<a class="page-link" href="#" aria-label="Next">-->
+                        <!--<span aria-hidden="true">&raquo;</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</nav>-->
+    <!--</div>-->
 
 </div>
 
@@ -132,10 +112,22 @@
     </div>
 </footer>
 
+<script type="text/template-tr">
+    <tr>
+        <th scope="row">{seq}</th>
+        <td>{name}</td>
+        <td>{teacher}</td>
+        <td>{schoolTime}</td>
+        <td>{campus}</td>
+        <td>{courseType}</td>
+        <td>{remark}</td>
+    </tr>
+</script>
 <!-- Javascript -->
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
-<script src="../js/main.js"></script>
+<script src="../js/util.js"></script>
+<script src="../js/class_part.js"></script>
 
 </body>
 </html>

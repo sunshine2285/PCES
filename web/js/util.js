@@ -30,12 +30,3 @@ function getCookie (key) {
 function removeCookie(key) {
     document.cookie = key + "=;"; 
 }
-
-
-function formatTemplate(dta, tmpl, format) {
-return tmpl.replace(/{(\w+)}}/g, function(m1, m2) {
-         if (!m2)
-            return "";
-        return (format && format[m2])? format[m2](dta[m2]) : dta[m2];
-    });
-}
