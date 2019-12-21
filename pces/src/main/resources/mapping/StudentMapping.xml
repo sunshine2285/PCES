@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019
+  ~ FileName: StudentMapping.xml
+  ~ @Author: 孙浩杰
+  ~ @LastModified:2019-10-30 21:38:26
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ouc.pces.mapper.StudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.ouc.pces.entity.Student">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="studentId" jdbcType="VARCHAR" property="studentId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="mail" jdbcType="VARCHAR" property="mail"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="college" jdbcType="INTEGER" property="college"/>
+        <result column="major" jdbcType="INTEGER" property="major"/>
+        <result column="grade" jdbcType="VARCHAR" property="grade"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="activate" jdbcType="INTEGER" property="activate"/>
+    </resultMap>
+
+    <select id="selectById" resultType="com.ouc.pces.entity.Student">
+        select * from student where id = #{id}
+    </select>
+
+    <select id="selectByStudentId" resultType="com.ouc.pces.entity.Student">
+        select * from student where studentId = #{studentId}
+    </select>
+
+    <select id="checkStudentIdExist" resultType="java.lang.Boolean">
+        select count(*) from student where studentId = #{studentId}
+    </select>
+
+    <select id="checkNicknameExist" resultType="java.lang.Boolean">
+        select count(*) from student where nickname = #{nickname}
+    </select>
+
+    <select id="checkPasswordCorrect" resultType="java.lang.Boolean">
+        select count(*) from student where studentId = #{studentId} and password = #{password}
+    </select>
+
+    <insert id="insert" parameterType="Student">
+        insert into student(studentId, name, nickname, mail, password, college, major, grade, type) values
+        (#{studentId}, #{name}, #{nickname}, #{mail}, #{password}, #{college}, #{major}, #{grade}, #{type})
+    </insert>
+
+    <update id="updateMailByStudentId">
+        update student set mail = #{mail} where studentId = #{studentId}
+    </update>
+
+    <update id="updatePwdByStudentId">
+        update  student set password = #{password} where studentId = #{studentId}
+    </update>
+</mapper>

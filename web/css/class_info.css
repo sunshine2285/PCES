@@ -1,0 +1,115 @@
+/** class detail css */
+.class-detail h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+/** class tag css */
+.class-tag {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.tag-box {
+    list-style: none;
+    padding: 3px;
+    margin: 0;
+    display: inline-block;
+    font-family: arial;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.tag-box li {
+    padding: 4px 8px;
+    float: left;
+    display: inline-block;
+}
+
+.tag-box .tag {
+    background: #48cd64;
+    color: #fff;
+    border-radius: 4px;
+    margin: 4px 7px;
+    position: relative;
+}
+
+.tag-box li a {
+    color: #ffffff;
+}
+
+.tag-box li a:hover {
+    color: #28b76b;
+}
+
+.modal-body .tag-box{
+    margin-bottom: 10px;
+}
+
+.modal-body p{
+    margin-bottom: 0;
+}
+
+
+/** class comment css */
+.class-comment{
+    margin-top: 30px;
+}
+
+.class-comment .class-comment-title{
+    font-size: 25px;
+    padding-bottom: 30px;
+}
+
+.comment-item {
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+.comment-item h4 {
+    color: black;
+    font-size: 20px;
+}
+
+.comment-item p {
+    color: white;
+    font-size: 15px;
+}
+
+.comment-item-inner {
+    display: flex;
+    align-items: center;
+}
+
+.comment-img {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.comment-info {
+    border-radius: 1em;
+    background: rgba(86,255,113,0.9);
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.comment-description {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 20px;
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.input-group {
+    margin-bottom: 0;
+    height: 100px;
+}
+
+.comment-input .comment-item-inner {
+    margin-left: -40px;
+}
