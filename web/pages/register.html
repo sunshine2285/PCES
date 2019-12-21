@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/font-awesome.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/register.css">
 </head>
 
 <body>
@@ -48,42 +49,45 @@
         </div>
         <div class="col-md-8 column">
 
-            <form role="form" action="login.html">
+            <div role="form">
                 <div class="form-group">
-                    <label for="username">用户名：</label><input type="text" class="form-control" id="username" name="username"/>
+                    <label for="nickname">昵称：</label><input type="text" class="form-control" id="nickname" />
                 </div>
                 <div class="form-group">
-                    <label for="password">密码：</label><input type="password" class="form-control" id="password" name="password" />
+                    <label for="studentId">学号：</label><input type="text" class="form-control" id="studentId" />
                 </div>
                 <div class="form-group">
-                    <label for="name">姓名</label><input type="text" class="form-control" id="name" name="name" />
+                    <label for="password">密码：</label><input type="password" class="form-control" id="password" />
                 </div>
                 <div class="form-group">
-                    <label for="studentId">学号：</label><input type="text" class="form-control" id="studentId" name="studentId"/>
+                    <label for="mail">邮箱：</label><input type="email" class="form-control" id="mail" />
                 </div>
                 <div class="form-group">
-                    <label for="email">邮箱：</label><input type="email" class="form-control" id="email" name="email"/>
-                </div>
-                <!--<div class="form-group">-->
-                    <!--<td><label>性别</label></td>-->
-                    <!--<td><input type="radio" name="gender" value="male"> 男-->
-                        <!--<input type="radio" name="gender" value="female"> 女-->
-                    <!--</td>-->
-                <!--</div>-->
-
-                <div class="form-group">
-                    <label for="grade">年级：</label><input type="text" class="form-control" id="grade" name="grade"/>
+                    <label for="name">姓名：</label><input type="text" class="form-control" id="name" />
                 </div>
                 <div class="form-group">
-                    <label for="college">学院：</label><input type="text" class="form-control" id="college" name="college"/>
+                    <label for="grade">年级：</label><input class="form-control" id="grade" />
                 </div>
                 <div class="form-group">
-                    <label for="major">专业：</label><input type="text" class="form-control" id="major" name="major"/>
+                    <label for="college">学院：</label>
+                    <select id="college" name="college" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
+                            border-color: #e0f7e6;"  onchange="changeMajor()">
+                        <option value="-1" selected="selected"> </option>
+                    </select>
                 </div>
+                <div class="select">
+                    <label for="major">专业：</label>
+                    <select id="major" name="major" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
+                        border-color: #e0f7e6;">
+                        <option value="-1" selected="selected"> </option>
+                    </select>
+                </div>
+                <br>
+                <br>
                 <div class="logD logDtip" style="text-align:center;">
-                    <button class="btn btn-primary">注册</button>
+                    <button class="btn btn-primary" onclick="register()">注册</button>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="col-md-2 column">
         </div>
@@ -109,6 +113,8 @@
 <!-- Javascript -->
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
+<script src="../js/util.js"></script>
+<script src="../js/register.js"></script>
 
 </body>
 </html> 

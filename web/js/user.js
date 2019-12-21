@@ -25,6 +25,7 @@ function changeEmail() {
 }
 
 function changePasswordCallBack(result) {
+    console.log(result);
     alert("修改密码成功！");
 }
 function changePassword() {
@@ -41,7 +42,7 @@ function changePassword() {
         alert("两次密码不一致！请重试！");
         return;
     }
-    request(url, "POST", updateDTO, changePasswordCallBack());
+    request(url, "POST", updateDTO, changePasswordCallBack);
 }
 function init() {
     // formatTemplate("填充成功！", $('script[type="text/template-tr"]').html());

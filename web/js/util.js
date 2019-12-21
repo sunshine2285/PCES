@@ -27,8 +27,13 @@ function getCookie (key) {
     return result ? JSON.parse(result.pop()) : "";
 }
 
-function removeCookie(key) {
-    document.cookie = key + "=;";
+function removeCookie(name)
+{
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null)
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString();
 }
 
 //回掉函数
