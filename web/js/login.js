@@ -28,7 +28,7 @@ function init(){
         document.getElementById("username").value = getCookie("studentId");
         removeCookie("studentId");
     }
-    else {
+    else if(getCookie("loginData")!==undefined && getCookie("loginData")!=="") {
         var userData = getCookie("loginData");
         document.getElementById("username").value = userData.userId;
         document.getElementById("password").value = userData.password;
