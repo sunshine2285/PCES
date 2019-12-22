@@ -26,11 +26,12 @@ function getAllCollege(){
 }
 
 function registerCallBack(result) {
+    alert(result.msg);
     if(result.code === 200)
     {
-        alert("注册成功！");
+        window.location.href = "login.html";
     }
-    window.location.href = "login.html";
+
 }
 function register(){
     var url = baseUrl + "register/student";

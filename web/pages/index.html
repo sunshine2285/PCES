@@ -134,13 +134,11 @@
 <script src="../js/util.js"></script>
 <script>
     // 没登录
-    if(getCookie("user")===undefined || getCookie("user")==="")
-    {
-
+    if(getCookie("user")===undefined || getCookie("user")==="") {
         document.getElementById("icon").classList.add("hiddenx");
         document.getElementById("login").classList.remove("hiddenx");
     }
-    else{
+    else {
         // document.getElementById("navname").innerText = getCookie("user").nickname;
         document.getElementById("login").classList.add("hiddenx");
         document.getElementById("icon").classList.remove("hiddenx");

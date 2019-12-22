@@ -76,7 +76,7 @@
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <form class="form-horizontal" role="form" onsubmit="changeEmail()">
+                        <form class="form-horizontal" role="form" action="">
                             <div>
                                 <label for="oldEmail" class="col-sm-2 control-label">原邮箱</label>
                                 <p id="oldEmail" class="col-sm-2">1234567890@ouc.edu.cn</p>
@@ -84,19 +84,19 @@
                             <div>
                                 <label for="newEmail" class="col-sm-2 control-label">新邮箱</label>
                                 <div class="col-sm-6">
-                                    <input type="email" class="form-control" id="newEmail" />
+                                    <input type="email" class="form-control" id="newEmail" required="required"/>
                                 </div>
                             </div>
                             <div>
                                 <label for="password2" class="col-sm-2 control-label">登录密码</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" id="password2" />
+                                    <input class="form-control" id="password2" required="required"/>
                                 </div>
                             </div>
                             <div>
                                 <label for="code" class="col-sm-2 control-label">验证码</label>
                                 <div class="col-sm-3">
-                                    <input class="form-control" id="code2" />
+                                    <input class="form-control" id="code2" required="required"/>
                                 </div>
                                 <br/>
 
@@ -106,7 +106,7 @@
                             <br/>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-lg btn-success">修改</button>
+                                    <button type="button" class="btn btn-lg btn-success" onclick="changeEmail()">修改</button>
                                 </div>
                             </div>
                         </form>
@@ -118,23 +118,23 @@
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <form class="form-horizontal" role="form" onsubmit="changePassword()">
+                        <form class="form-horizontal" role="form" action="">
                             <div class="form-group">
                                 <label for="oldpassword" class="col-sm-2 control-label">原密码</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="oldpassword" />
+                                    <input class="form-control" id="oldpassword"  required="required"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="newpassword" class="col-sm-2 control-label">新密码</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="newpassword" />
+                                    <input class="form-control" id="newpassword"  required="required"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="newpassword2" class="col-sm-2 control-label">确认密码</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="newpassword2" />
+                                    <input class="form-control" id="newpassword2"  required="required"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -155,7 +155,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-lg btn-success">修改</button>
+                                    <button type="button" class="btn btn-lg btn-success" onclick="changePassword()">修改</button>
                                 </div>
                             </div>
                         </form>

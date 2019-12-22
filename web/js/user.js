@@ -4,12 +4,15 @@ function switcher(buttonId) {
     document.getElementById("div3").setAttribute("hidden",true);
     document.getElementById("div" + buttonId).removeAttribute("hidden");
 }
-function changeEmailCallBack(newEmail) {
+function changeEmailCallBack(result) {
+    var newEmail = document.getElementById("newEmail").value;
+    console.log(result);
+    alert(result.msg);
     var user = getCookie("user");
     user.mail = newEmail;
     setCookie("user", user);
     init();
-    alert("修改邮箱成功！");
+
 }
 function changeEmail() {
     var user = getCookie("user");
@@ -17,16 +20,16 @@ function changeEmail() {
     let updateDTO = {
         password: document.getElementById("password2").value,
         updateInfo: document.getElementById("newEmail").value,
-        userId: user.id,
+        userId: user.studentId,
         verificationCode: document.getElementById("code2").value
-    }
+    };
     console.log(updateDTO);
-    request(url, "POST", updateDTO, changeEmailCallBack(document.getElementById("newEmail").value));
+    request(url, "POST", updateDTO, changeEmailCallBack);
 }
 
 function changePasswordCallBack(result) {
     console.log(result);
-    alert("修改密码成功！");
+    alert(result.msg);
 }
 function changePassword() {
     var user = getCookie("user");
@@ -34,7 +37,7 @@ function changePassword() {
     let updateDTO = {
         password: document.getElementById("oldpassword").value,
         updateInfo: document.getElementById("newpassword").value,
-        userId: user.id,
+        userId: user.studentId,
         verificationCode: document.getElementById("code").value
     }
     if(updateDTO.updateInfo!==document.getElementById("newpassword2").value)
@@ -42,6 +45,7 @@ function changePassword() {
         alert("两次密码不一致！请重试！");
         return;
     }
+    console.log(updateDTO);
     request(url, "POST", updateDTO, changePasswordCallBack);
 }
 function init() {
