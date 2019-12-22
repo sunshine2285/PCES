@@ -31,7 +31,7 @@
             <div class="d-flex justify-content-end align-items-center pt-2">
                 <form class="search-form" id="search-form" action="search_result.html">
                     <input type="text" placeholder="你可能感兴趣的课程..." name="search" class="form-control search-input">
-                    <button class="btn search-btn" ><i class="fa fa-search"></i></button>
+                    <button class="btn search-btn"><i class="fa fa-search"></i></button>
                 </form>
                 <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex hiddenx" id="icon">
                     <li class="list-inline-item">
@@ -40,7 +40,7 @@
                     </li>
                 </ul>
 
-                <a href="login.html" class="btn btn-primary d-none d-lg-flex hiddenx" id="login" >登录/注册</a>
+                <a href="login.html" class="btn btn-primary d-none d-lg-flex hiddenx" id="login">登录/注册</a>
             </div>
         </div>
     </div>
@@ -48,27 +48,25 @@
 <!-- class detail -->
 <div class="class-detail">
     <div class="container">
-        <h3 id="course-name">定向越野</h3>
+        <h3 id="course-name"></h3>
         <div class="row">
             <div class="col-md-6">
                 <ul class="list-group list-group-flush class-detail-list">
-                    <li class="list-group-item" id="course-teacher">授课教师：徐文华</li>
-                    <li class="list-group-item" id="course-time">上课时间：周四1-2节</li>
-                    <li class="list-group-item" id="course-campus">校区：崂山校区</li>
-                    <li class="list-group-item" id="course-type">课程类型：通识选修课</li>
-                    <li class="list-group-item" id="course-remark">备注：无</li>
+                    <li class="list-group-item" id="course-teacher"></li>
+                    <li class="list-group-item" id="course-time"></li>
+                    <li class="list-group-item" id="course-campus"></li>
+                    <li class="list-group-item" id="course-type"></li>
+                    <li class="list-group-item" id="course-remark"></li>
                 </ul>
                 <div class="col-md-6 class-tag">该课程评价常用的标签</div>
-                <ul class="tag-box" id="course-tags">
-                    <li class="tag">学富五车</li>
-                    <li class="tag">学富五车</li>
-                    <li class="tag">学富五车</li>
-                    <li class="tag">儒雅随和</li>
+                <ul class="tag-box">
+                    <div id="course-tags"></div>
                     <!-- Button trigger modal -->
                     <li class="tag" data-toggle="modal" data-target="#staticBackdrop">
                         <i class="fa fa-plus"></i>
                     </li>
                 </ul>
+
 
                 <!-- Tag Modal -->
                 <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
@@ -84,16 +82,11 @@
                             <div class="modal-body">
                                 <div class="all-tags">
                                     <p>所有标签</p>
-                                    <ul class="tag-box" id="all-tags">
-                                        <li class="tag">儒雅随和 <i class="fa fa-plus"></i></li>
-                                        <li class="tag">风趣幽默 <i class="fa fa-plus"></i></li>
-                                        <li class="tag">严肃刻板 <i class="fa fa-plus"></i></li>
-                                    </ul>
+                                    <ul class="tag-box" id="all-tags"></ul>
                                 </div>
                                 <div class="choose-tags">
                                     <p>我选择的标签</p>
-                                    <ul class="tag-box" id="my-tags">
-                                    </ul>
+                                    <ul class="tag-box" id="my-tags"></ul>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -121,49 +114,36 @@
 <div class="class-comment">
     <div class="container">
         <div class="class-comment-title">课程评论</div>
-        <div class="class-comment-list" id="comment-list">
-
-            <div class="comment-item">
-                <div class="comment-item-inner">
-                    <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
-                    <div class="comment-info">
-                        <div class="comment-description">
-                            <h4>天臻</h4>
-                            <p>简约，好看，看了你的知识图片，哇 真强大</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="class-comment-list" id="comment-list"></div>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-2 d-flex justify-content-end align-items-center pt-2">
+                <a onclick="addComment()" class="btn btn-primary d-none d-lg-flex mb-5">发表</a>
             </div>
-            <div class="row">
-                <div class="col-md-6"></div>
-                <div class="col-md-2 d-flex justify-content-end align-items-center pt-2">
-                    <a onclick="addComment()" class="btn btn-primary d-none d-lg-flex mb-5">发表</a>
-                </div>
-                <div class="col-md-4 comment-input">
-                    <div class="comment-item">
-                        <div class="comment-item-inner">
-                            <div class="comment-info">
-                                <div class="comment-description pb-0">
-                                    <div class="input-group">
-                                        <label id="comment-username"></label>
-                                        <form action="">
-                                            <div class="input-group form-group">
-                                                <input type="text" class="form-control" placeholder=""
-                                                       aria-label="Example text with button addon"
-                                                       aria-describedby="button-addon1">
-                                            </div>
-                                        </form>
-
-                                    </div>
+            <div class="col-md-4 comment-input">
+                <div class="comment-item">
+                    <div class="comment-item-inner">
+                        <div class="comment-info">
+                            <div class="comment-description pb-0">
+                                <div class="input-group">
+                                    <label id="comment-username"></label>
+                                    <form action="">
+                                        <div class="input-group form-group">
+                                            <input type="text" id="comment" class="form-control" placeholder=""
+                                                   aria-label="Example text with button addon"
+                                                   aria-describedby="button-addon1">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <img src="../img/person-1.jpg" alt="Image" class="rounded-circle comment-img">
                         </div>
+                        <img src="../img/person-1.jpg" alt="Image" class="rounded-circle comment-img">
                     </div>
                 </div>
             </div>
-
         </div>
+
+
     </div>
 </div>
 
@@ -189,7 +169,7 @@
             <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
             <div class="comment-info">
                 <div class="comment-description">
-                    <h4>{username}</h4>
+                    <h4>{userId}</h4>
                     <p>{comment}</p>
                 </div>
             </div>
@@ -197,26 +177,25 @@
     </div>
 </script>
 <script type="text/template-tag">
-     <li class="tag">{tag}
-         <label hidden>{seq}</label>
-         <i class="fa fa-plus"></i>
-     </li>
+    <li class="tag my-tag">
+        <span>{tag}</span>
+        <label hidden>{seq}</label>
+        <i class="fa fa-plus"></i>
+    </li>
 </script>
 <script type="text/template-course-tag">
-    <li class="tag">{courseTagName}</li>
+    <li class="tag">{courseTagName}<span>{num}</span></li>
 </script>
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
+<script src="../js/util.js"></script>
 <script src="../js/class_info.js"></script>
 <script>
     // 没登录
-    if(getCookie("user")===undefined || getCookie("user")==="")
-    {
-
+    if (getCookie("user") === undefined || getCookie("user") === "") {
         document.getElementById("icon").classList.add("hiddenx");
         document.getElementById("login").classList.remove("hiddenx");
-    }
-    else{
+    } else {
         // document.getElementById("navname").innerText = getCookie("user").nickname;
         document.getElementById("login").classList.add("hiddenx");
         document.getElementById("icon").classList.remove("hiddenx");
