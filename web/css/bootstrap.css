@@ -10041,3 +10041,14 @@ a.text-dark:hover, a.text-dark:focus {
 .hiddenx{
   display:none !important;
 }
+
+body{
+  position: relative;
+  min-height: 750px;
+}
+
+.footer{
+  /* position: absolute !important;
+  bottom: 0 !important;
+  width:100% !important; */
+}

@@ -10,7 +10,7 @@ function loginCallBack(result) {
         console.log(result.data);
         setCookie("user", result.data);
         //页面跳转
-        window.location.href = "http://localhost:63342/PCES/web/pages/index.html";
+        window.location.href = "index.html";
     }
 
 }
