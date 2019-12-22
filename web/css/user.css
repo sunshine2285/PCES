@@ -20,11 +20,11 @@ body {
 
 
 #buttonBox{
-    padding: 20px 0px;
+    padding: 20px 0;
 
 }
 
-#userBox{
+#userBox {
     position:fixed;
     left: 50%;
     top: 40%;

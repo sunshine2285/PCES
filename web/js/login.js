@@ -1,5 +1,10 @@
 function loginCallBack(result) {
     console.log(result);
+    if(result.code === 403 || result.code === 404)
+    {
+        alert(result.msg);
+        return;
+    }
     if (result.code === 200) {
         console.log(window.location);
         console.log(result.data);
@@ -7,6 +12,7 @@ function loginCallBack(result) {
         //页面跳转
         window.location.href = "http://localhost:63342/PCES/web/pages/index.html";
     }
+
 }
 
 function login() {
@@ -28,7 +34,7 @@ function init(){
         document.getElementById("username").value = getCookie("studentId");
         removeCookie("studentId");
     }
-    else if(getCookie("loginData")!==undefined && getCookie("loginData")!=="") {
+    else if(getCookie("loginData")!==undefined && getCookie("loginData")!==""){
         var userData = getCookie("loginData");
         document.getElementById("username").value = userData.userId;
         document.getElementById("password").value = userData.password;

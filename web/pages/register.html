@@ -54,45 +54,45 @@
         </div>
         <div class="col-md-8 column">
 
-            <div role="form">
+            <form class="form-horizontal" role="form" action="">
                 <div class="form-group">
-                    <label for="nickname">昵称：</label><input type="text" class="form-control" id="nickname" />
+                    <label for="nickname">昵称：</label><input type="text" class="form-control" id="nickname" required="required"/>
                 </div>
                 <div class="form-group">
-                    <label for="studentId">学号：</label><input type="text" class="form-control" id="studentId" />
+                    <label for="studentId">学号：</label><input type="text" class="form-control" id="studentId" required="required"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">密码：</label><input type="password" class="form-control" id="password" />
+                    <label for="password">密码：</label><input type="password" class="form-control" id="password" required="required"/>
                 </div>
                 <div class="form-group">
-                    <label for="mail">邮箱：</label><input type="email" class="form-control" id="mail" />
+                    <label for="mail">邮箱：</label><input type="email" class="form-control" id="mail" required="required"/>
                 </div>
                 <div class="form-group">
-                    <label for="name">姓名：</label><input type="text" class="form-control" id="name" />
+                    <label for="name">姓名：</label><input type="text" class="form-control" id="name" required="required" />
                 </div>
                 <div class="form-group">
-                    <label for="grade">年级：</label><input class="form-control" id="grade" />
+                    <label for="grade">年级：</label><input class="form-control" id="grade" required="required"/>
                 </div>
                 <div class="form-group">
                     <label for="college">学院：</label>
                     <select id="college" name="college" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
-                            border-color: #e0f7e6;"  onchange="changeMajor()">
-                        <option value="-1" selected="selected"> </option>
+                            border-color: #e0f7e6;"  onchange="changeMajor()" required="required">
+                        <option value="" selected="selected"> </option>
                     </select>
                 </div>
                 <div class="select">
                     <label for="major">专业：</label>
                     <select id="major" name="major" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
-                        border-color: #e0f7e6;">
-                        <option value="-1" selected="selected"> </option>
+                        border-color: #e0f7e6;" required="required">
+                        <option value="" selected="selected"> </option>
                     </select>
                 </div>
                 <br>
                 <br>
                 <div class="logD logDtip" style="text-align:center;">
-                    <button class="btn btn-primary" onclick="register()">注册</button>
+                    <button class="btn btn-primary" type="button" onclick="register()">注册</button>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="col-md-2 column">
         </div>
