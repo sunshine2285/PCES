@@ -52,11 +52,11 @@
         <div class="row">
             <div class="col-md-6">
                 <ul class="list-group list-group-flush class-detail-list">
-                    <li class="list-group-item">授课教师：徐文华</li>
-                    <li class="list-group-item">上课时间：周四1-2节</li>
-                    <li class="list-group-item">校区：崂山校区</li>
-                    <li class="list-group-item">课程类型：通识选修课</li>
-                    <li class="list-group-item">备注：无</li>
+                    <li class="list-group-item" id="course-teacher">授课教师：徐文华</li>
+                    <li class="list-group-item" id="course-time">上课时间：周四1-2节</li>
+                    <li class="list-group-item" id="course-campus">校区：崂山校区</li>
+                    <li class="list-group-item" id="course-type">课程类型：通识选修课</li>
+                    <li class="list-group-item" id="course-remark">备注：无</li>
                 </ul>
                 <div class="col-md-6 class-tag">该课程评价常用的标签</div>
                 <ul class="tag-box" id="course-tags">
@@ -109,7 +109,7 @@
                 <div class="card text-white bg-success">
                     <div class="card-header">课程介绍</div>
                     <div class="card-body">
-                        <p class="card-text">
+                        <p class="card-text" id="course-introduction">
                             文化大革命如火如荼进行的同时。军方探寻外星文明的绝秘计划“红岸工程”取得了突破性进展。
                             但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运。
                             地球文明向宇宙发出的第一声啼鸣，以太阳为中心，以光速向宇宙深处飞驰……
@@ -204,7 +204,7 @@
     </div>
 </script>
 <script type="text/template-tag">
-     <li class="tag">{tag} <i class="fa fa-plus"></i></li>
+     <li class="tag" id="">{tag} <i class="fa fa-plus"></i></li>
 </script>
 <script type="text/template-course-tag">
     <li class="tag">学富五车</li>

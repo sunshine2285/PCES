@@ -1,4 +1,4 @@
-let tagsDTO = [];
+let tags = [];
 
 /** Choose Tags */
 $('#all-tags li').on('click', function () {
@@ -9,16 +9,12 @@ $('#all-tags li').on('click', function () {
 
     let courseId = getQueryVariable("courseId");
     let user = getCookie("user");
-    let tag = {
-        courseId: courseId,
-        id: 0,
-        num: 0,
-        tagId: 0
-    };
-    tagsDTO.push(tag);
+    let tagsDTO = [];
+    tagsDTO.push(tags[1]);
 });
 
 function initTagCallBack(result) {
+    tags = result;
     for (let i = 0; i < result.length; ++i) {
         $("all-tags").append(
             formatTemplate(result[i], $('script[type="text/template-tag"]').html()));
@@ -60,11 +56,12 @@ function addComment() {
 }
 
 function initCourseCallBack(result) {
-    // console.log(result);
-    for (let i = 0; i < result.length; ++i) {
-        $("#course-info").append(
-            formatTemplate(result[i], $('script[type="text/template-course-info"]').html()));
-    }
+    document.getElementById("course-name").innerText = result.name;
+    document.getElementById("course-time").innerText = result.teacher;
+    document.getElementById("course-campus").innerText = result.campus;
+    document.getElementById("course-type").innerText = result.type;
+    document.getElementById("course-remark").innerText = result.remark;
+    document.getElementById("course-introduction").innerText = result.introduction;
 }
 
 function initCourseTagCallBack(result) {
@@ -96,7 +93,6 @@ function init() {
     request(url_tag, "GET", null, initTagCallBack);
     request(url_comment, "GET", null, initCommentCallBack);
     document.getElementById("comment-username").innerText = user.name;
-
 }
 
 init();
