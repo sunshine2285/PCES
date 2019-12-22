@@ -1,4 +1,5 @@
 let tags = [];
+let tagsDTO = [];
 
 /** Choose Tags */
 $('#all-tags li').on('click', function () {
@@ -7,18 +8,25 @@ $('#all-tags li').on('click', function () {
     li.classList.add('tag');
     document.getElementById('my-tags').appendChild(li);
 
-    let courseId = getQueryVariable("courseId");
-    let user = getCookie("user");
-    let tagsDTO = [];
-    tagsDTO.push(tags[1]);
+    let tagSeq = $(this).find("label").innerText;
+    tagsDTO.push(tags[parseInt(tagSeq)]);
 });
 
 function initTagCallBack(result) {
     tags = result;
     for (let i = 0; i < result.length; ++i) {
+        result[i].seq = i;
         $("all-tags").append(
             formatTemplate(result[i], $('script[type="text/template-tag"]').html()));
     }
+}
+
+function addTagCallBack(result) {
+    let courseId = getQueryVariable("courseId");
+    if (result.code === 200) {
+        alert("评论成功！");
+    }
+    window.location.href = "class_info.html?courseId=" + courseId;
 }
 
 function addTag() {
@@ -28,7 +36,7 @@ function addTag() {
     let url = baseUrl + "tag/add";
     let courseId = getQueryVariable("courseId");
 
-    request(url, "POST", tagsDTO, addCommentCallBack);
+    request(url, "POST", tagsDTO, addTagCallBack);
 }
 
 function addCommentCallBack(result) {
@@ -67,6 +75,11 @@ function initCourseCallBack(result) {
 function initCourseTagCallBack(result) {
     // console.log(result);
     for (let i = 0; i < result.length; ++i) {
+        for (let j = 0; j < tags.length; ++j) {
+            if (result[i].tagId === tags[j].id) {
+                result[i].courseTagName = tags[j].tag;
+            }
+        }
         $("#course-tags").append(
             formatTemplate(result[i], $('script[type="text/template-course-tag"]').html()));
     }
@@ -89,8 +102,8 @@ function init() {
     let url_comment = baseUrl + "comment/" + courseId;
 
     request(url_course, "GET", null, initCourseCallBack);
-    request(url_courseTag, "GET", null, initCourseTagCallBack);
     request(url_tag, "GET", null, initTagCallBack);
+    request(url_courseTag, "GET", null, initCourseTagCallBack);
     request(url_comment, "GET", null, initCommentCallBack);
     document.getElementById("comment-username").innerText = user.name;
 }

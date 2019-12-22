@@ -98,7 +98,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                                <button type="button" class="btn btn-primary">完成</button>
+                                <button type="button" onclick="addTag()" class="btn btn-primary">完成</button>
                             </div>
                         </div>
                     </div>
@@ -109,14 +109,7 @@
                 <div class="card text-white bg-success">
                     <div class="card-header">课程介绍</div>
                     <div class="card-body">
-                        <p class="card-text" id="course-introduction">
-                            文化大革命如火如荼进行的同时。军方探寻外星文明的绝秘计划“红岸工程”取得了突破性进展。
-                            但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运。
-                            地球文明向宇宙发出的第一声啼鸣，以太阳为中心，以光速向宇宙深处飞驰……
-                            四光年外，“三体文明”正苦苦挣扎——三颗无规则运行的太阳主导下的百余次毁灭与重生逼迫他们逃离母星。
-                            而恰在此时。他们接收到了地球发来的信息。在运用超技术锁死地球人的基础科学之后。三体人庞大的宇宙舰队开始向地球进发……
-                            人类的末日悄然来临。
-                        </p>
+                        <p class="card-text" id="course-introduction"></p>
                     </div>
                 </div>
             </div>
@@ -144,7 +137,7 @@
             <div class="row">
                 <div class="col-md-6"></div>
                 <div class="col-md-2 d-flex justify-content-end align-items-center pt-2">
-                    <a href="" class="btn btn-primary d-none d-lg-flex mb-5" id="login">发表</a>
+                    <a onclick="addComment()" class="btn btn-primary d-none d-lg-flex mb-5">发表</a>
                 </div>
                 <div class="col-md-4 comment-input">
                     <div class="comment-item">
@@ -196,7 +189,7 @@
             <img src="../img/person.jpg" alt="Image" class="rounded-circle comment-img">
             <div class="comment-info">
                 <div class="comment-description">
-                    <h4>{date}</h4>
+                    <h4>{username}</h4>
                     <p>{comment}</p>
                 </div>
             </div>
@@ -204,10 +197,13 @@
     </div>
 </script>
 <script type="text/template-tag">
-     <li class="tag" id="">{tag} <i class="fa fa-plus"></i></li>
+     <li class="tag">{tag}
+         <label hidden>{seq}</label>
+         <i class="fa fa-plus"></i>
+     </li>
 </script>
 <script type="text/template-course-tag">
-    <li class="tag">学富五车</li>
+    <li class="tag">{courseTagName}</li>
 </script>
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
