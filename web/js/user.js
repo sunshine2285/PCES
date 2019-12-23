@@ -5,13 +5,16 @@ function switcher(buttonId) {
     document.getElementById("div" + buttonId).removeAttribute("hidden");
 }
 function changeEmailCallBack(result) {
-    var newEmail = document.getElementById("newEmail").value;
-    console.log(result);
+    if(result.code===200)
+    {
+        var newEmail = document.getElementById("newEmail").value;
+        var user = getCookie("user");
+        user.mail = newEmail;
+        setCookie("user", user);
+        init();
+        window.location.reload();
+    }
     alert(result.msg);
-    var user = getCookie("user");
-    user.mail = newEmail;
-    setCookie("user", user);
-    init();
 
 }
 function changeEmail() {
@@ -28,7 +31,9 @@ function changeEmail() {
 }
 
 function changePasswordCallBack(result) {
-    console.log(result);
+    if(result.code===200){
+        window.location.reload();
+    }
     alert(result.msg);
 }
 function changePassword() {
@@ -48,16 +53,23 @@ function changePassword() {
     console.log(updateDTO);
     request(url, "POST", updateDTO, changePasswordCallBack);
 }
+function collegeCallBack(result){
+    document.getElementById("college").innerText = result.name;
+}
+function majorCallBack(result){
+    document.getElementById("major").innerText = result.name;
+}
 function init() {
     // formatTemplate("填充成功！", $('script[type="text/template-tr"]').html());
     var user = getCookie("user");
-   // console.log(user);
     // div1
+    var collegeurl = baseUrl + "/college/"+user.college;
+    var majorurl = baseUrl + "/major/"+user.major;
+    request(collegeurl, "GET", null, collegeCallBack);
+    request(majorurl, "GET", null, majorCallBack);
     document.getElementById("nickname").innerText = user.nickname;
     document.getElementById("name").innerText = user.name;
     document.getElementById("studentId").innerText = user.studentId;
-    document.getElementById("college").innerText = user.college;
-    document.getElementById("major").innerText = user.major;
     document.getElementById("grade").innerText = user.grade;
     document.getElementById("mail").innerText = user.mail;
     // div2

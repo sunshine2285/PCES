@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>user</title>
     <meta charset="UTF-8">
@@ -31,7 +32,7 @@
                 <div class="d-flex justify-content-end align-items-center pt-2">
                     <form class="search-form" id="search-form" action="search_result.html">
                         <input type="text" placeholder="你可能感兴趣的课程..." name="search" class="form-control search-input">
-                        <button class="btn search-btn" ><i class="fa fa-search"></i></button>
+                        <button class="btn search-btn"><i class="fa fa-search"></i></button>
                     </form>
                     <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex hiddenx" id="icon">
                         <li class="list-inline-item">
@@ -40,7 +41,7 @@
                         </li>
                     </ul>
 
-                    <a href="login.html" class="btn btn-primary d-none d-lg-flex hiddenx" id="login" >登录/注册</a>
+                    <a href="login.html" class="btn btn-primary d-none d-lg-flex hiddenx" id="login">登录/注册</a>
                 </div>
             </div>
         </div>
@@ -60,15 +61,36 @@
             </button>
         </div>
         <div id="div1">
-            <table  class="table table-condensed table-hover">
+            <table class="table table-condensed table-hover">
                 <tbody>
-                <tr><td>昵称</td><td id="nickname">小明</td></tr>
-                <tr><td>真实姓名</td><td id="name">小明</td></tr>
-                <tr><td>学号</td><td id="studentId">17020031000</td></tr>
-                <tr><td>学院</td><td id="college">信息科学与工程学院</td></tr>
-                <tr><td>专业</td><td id="major">计算机科学与技术</td></tr>
-                <tr><td>年级</td><td id="grade">2017</td></tr>
-                <tr><td>邮箱</td><td id="mail">1234567890@ouc.edu.cn</td></tr>
+                    <tr>
+                        <td>昵称</td>
+                        <td id="nickname">小明</td>
+                    </tr>
+                    <tr>
+                        <td>真实姓名</td>
+                        <td id="name">小明</td>
+                    </tr>
+                    <tr>
+                        <td>学号</td>
+                        <td id="studentId">17020031000</td>
+                    </tr>
+                    <tr>
+                        <td>学院</td>
+                        <td id="college">信息科学与工程学院</td>
+                    </tr>
+                    <tr>
+                        <td>专业</td>
+                        <td id="major">计算机科学与技术</td>
+                    </tr>
+                    <tr>
+                        <td>年级</td>
+                        <td id="grade">2017</td>
+                    </tr>
+                    <tr>
+                        <td>邮箱</td>
+                        <td id="mail">1234567890@ouc.edu.cn</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -84,29 +106,25 @@
                             <div>
                                 <label for="newEmail" class="col-sm-2 control-label">新邮箱</label>
                                 <div class="col-sm-6">
-                                    <input type="email" class="form-control" id="newEmail" required="required"/>
+                                    <input type="email" class="form-control" required="required" id="newEmail" />
                                 </div>
                             </div>
                             <div>
                                 <label for="password2" class="col-sm-2 control-label">登录密码</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" id="password2" required="required"/>
+                                    <input class="form-control" type="password" required="required" id="password2" />
                                 </div>
                             </div>
                             <div>
                                 <label for="code" class="col-sm-2 control-label">验证码</label>
-                                <div class="col-sm-3">
-                                    <input class="form-control" id="code2" required="required"/>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="code2" required="required" style="display: inline-block; width: 60%;" />
+                                    <button type="button" class="btn btn-default btn-info" style="float: right;">发送验证码</button>
                                 </div>
-                                <br/>
-
-                                &nbsp;&nbsp;&nbsp;<button type=button class="btn btn-default btn-info">发送验证码</button>
-                                <br/>
                             </div>
-                            <br/>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="button" class="btn btn-lg btn-success" onclick="changeEmail()">修改</button>
+                                <div style="margin-top: 20px;">
+                                    <button type="button" class="btn btn-lg btn-success" onclick="changeEmail()" style="width: 50%;">修改</button>
                                 </div>
                             </div>
                         </form>
@@ -122,19 +140,19 @@
                             <div class="form-group">
                                 <label for="oldpassword" class="col-sm-2 control-label">原密码</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="oldpassword"  required="required"/>
+                                    <input class="form-control" type="password" id="oldpassword" required="required" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="newpassword" class="col-sm-2 control-label">新密码</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="newpassword"  required="required"/>
+                                    <input class="form-control" type="password" id="newpassword" required="required" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="newpassword2" class="col-sm-2 control-label">确认密码</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="newpassword2"  required="required"/>
+                                    <input class="form-control" type="password" id="newpassword2" required="required" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -143,19 +161,16 @@
                                     <p id="div3-email">1234567890@ouc.edu.cn</p>
                                 </div>
                             </div>
-                            &nbsp;&nbsp;&nbsp;
-                            <button type=button class="btn btn-default btn-info">发送验证码</button>
-                            <br/>
-                            <br/>
-                            <div class="form-group">
+                            <div>
                                 <label for="code" class="col-sm-2 control-label">验证码</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="code" />
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="code2" required="required" style="display: inline-block; width: 60%;" />
+                                    <button type="button" class="btn btn-default btn-info" style="float: right;">发送验证码</button>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="button" class="btn btn-lg btn-success" onclick="changePassword()">修改</button>
+                                <div style="margin-top: 20px;">
+                                    <button type="button" class="btn btn-lg btn-success" onclick="changePassword()" style="width: 50%;">修改</button>
                                 </div>
                             </div>
                         </form>
@@ -163,23 +178,24 @@
                 </div>
             </div>
         </div>
+        <!-- footer -->
+        <footer class="user-footer">
+            <div class="footer-bottom text-center py-5">
+                <ul class="social-list list-unstyled pb-4 mb-0">
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-github"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-slack"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-product-hunt"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+                <small class="copyright">Copyright &copy; 2019.All rights reserved.<a target=""></a></small>
+            </div>
+        </footer>
     </div>
 
 
-    <!-- footer -->
-    <footer class="footer">
-        <div class="footer-bottom text-center py-5">
-            <ul class="social-list list-unstyled pb-4 mb-0">
-                <li class="list-inline-item"><a href="#"><i class="fa fa-github"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-slack"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-product-hunt"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-            <small class="copyright">Copyright &copy; 2019.All rights reserved.<a target=""></a></small>
-        </div>
-    </footer>
+
     <!-- Javascript -->
     <script src="../js/jquery-3.4.1.js"></script>
     <script src="../js/bootstrap.js"></script>
@@ -187,20 +203,18 @@
     <script src="../js/user.js"></script>
     <script>
         // 没登录
-        if(getCookie("user")===undefined || getCookie("user")==="")
+        if (getCookie("user") === undefined || getCookie("user") === "")
         {
 
             document.getElementById("icon").classList.add("hiddenx");
             document.getElementById("login").classList.remove("hiddenx");
         }
-        else{
+        else {
             // document.getElementById("navname").innerText = getCookie("user").nickname;
             document.getElementById("login").classList.add("hiddenx");
             document.getElementById("icon").classList.remove("hiddenx");
         }
     </script>
 </body>
+
 </html>
-
-
-
